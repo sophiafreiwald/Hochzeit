@@ -364,7 +364,7 @@
     text-align:center;
     overflow:hidden;
     min-height:260px;
-    background-image:url('floral-footer.png');
+    background-image:url('floral-bottom-left.png');
     background-repeat:no-repeat;
     background-position:bottom center;
     background-size:auto 240px;
