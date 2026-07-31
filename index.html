@@ -371,6 +371,89 @@
     color:var(--rose);
     font-size:1.8rem;
   }
+
+  /* ---- mobile optimization ---- */
+  @media (max-width: 600px){
+    .page{
+      padding:0 20px;
+    }
+    section{
+      padding:56px 0;
+    }
+    .hero{
+      padding-top:40px;
+      background-size:auto 220px;
+    }
+    .hero h1{
+      font-size:2rem;
+      margin-bottom:22px;
+    }
+    .names{
+      font-size:2.4rem;
+    }
+    .names .and{
+      font-size:0.78rem;
+      letter-spacing:0.28em;
+      margin:4px 0;
+    }
+    .date{
+      font-size:0.82rem;
+      letter-spacing:0.14em;
+    }
+    .intro p{
+      font-size:0.98rem;
+    }
+    .intro .sign-off{
+      font-size:1.4rem;
+    }
+    .schedule h2,
+    .gallery h2,
+    .rsvp h2,
+    .info h2{
+      font-size:1.7rem;
+    }
+    .schedule-grid{
+      gap:32px 16px;
+    }
+    .schedule-item img{
+      height:52px;
+    }
+    .schedule-item .label{
+      font-size:0.78rem;
+    }
+    .gallery-grid{
+      gap:10px;
+    }
+    .form-wrap{
+      max-width:100%;
+    }
+    .radio-row{
+      flex-direction:column;
+      gap:14px;
+    }
+    .submit-btn{
+      width:100%;
+      padding:14px 0;
+    }
+    .info-block{
+      max-width:100%;
+    }
+    footer{
+      padding:56px 0 32px;
+    }
+    footer .foot-text{
+      font-size:1.4rem;
+    }
+  }
+
+  @media (max-width: 380px){
+    .names{
+      font-size:2rem;
+    }
+    .hero h1{
+      font-size:1.7rem;
+    }
+  }
 </style>
 </head>
 <body>
