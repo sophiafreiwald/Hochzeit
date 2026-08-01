@@ -485,58 +485,24 @@
     position:fixed;
     inset:0;
     z-index:1000;
-  }
-  .intro-panel{
-    position:absolute;
-    top:0;
-    bottom:0;
-    width:50%;
-    background:var(--cream);
+    background-image:url('seal-desktop.jpg');
+    background-size:cover;
+    background-position:center;
     transition:opacity 2.4s ease;
   }
-  .intro-panel-left{
-    left:0;
+  @media (max-width:600px){
+    .intro-overlay{
+      background-image:url('seal-mobile.jpg');
+    }
   }
-  .intro-panel-right{
-    right:0;
-  }
-  .intro-cover{
-    position:absolute;
-    inset:0;
-    z-index:2;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    transition:opacity 2.4s ease;
-    pointer-events:none;
-  }
-  .intro-seal{
-    width:260px;
-    max-width:70vw;
-    height:auto;
-  }
-  .intro-date{
-    margin-top:22px;
-    letter-spacing:0.2em;
-    font-size:0.95rem;
-    color:var(--ink);
-  }
-  .intro-overlay.opening .intro-panel-left{
-    opacity:0;
-  }
-  .intro-overlay.opening .intro-panel-right{
-    opacity:0;
-  }
-  .intro-overlay.opening .intro-cover{
+  .intro-overlay.opening{
     opacity:0;
   }
   .intro-overlay.opened{
     display:none;
   }
   @media (prefers-reduced-motion: reduce){
-    .intro-panel{ transition:opacity 0.4s ease; }
+    .intro-overlay{ transition:opacity 0.4s ease; }
   }
 </style>
 </head>
@@ -544,14 +510,7 @@
 
 <noscript><style>.intro-overlay{display:none !important;} body{overflow:auto !important;}</style></noscript>
 
-<div class="intro-overlay" id="intro-overlay">
-  <div class="intro-panel intro-panel-left"></div>
-  <div class="intro-panel intro-panel-right"></div>
-  <div class="intro-cover">
-    <img class="intro-seal" src="seal-sl.png" alt="S &amp; L">
-    <div class="intro-date">10. Juni 2028</div>
-  </div>
-</div>
+<div class="intro-overlay" id="intro-overlay"></div>
 
 
 <div class="page">
