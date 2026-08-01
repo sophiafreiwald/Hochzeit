@@ -108,6 +108,13 @@
     font-size:0.95rem;
     color:var(--ink);
   }
+  .countdown{
+    margin-top:18px;
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.3rem;
+    color:var(--rose);
+    letter-spacing:0.02em;
+  }
 
   /* ---- intro text ---- */
   .intro{
@@ -505,9 +512,10 @@
     transition:opacity 2.4s ease;
     pointer-events:none;
   }
-  .intro-monogram{
-    font-size:4.2rem;
-    line-height:1;
+  .intro-seal{
+    width:260px;
+    max-width:70vw;
+    height:auto;
   }
   .intro-date{
     margin-top:22px;
@@ -540,7 +548,7 @@
   <div class="intro-panel intro-panel-left"></div>
   <div class="intro-panel intro-panel-right"></div>
   <div class="intro-cover">
-    <div class="intro-monogram script">S &amp; L</div>
+    <img class="intro-seal" src="seal-sl.png" alt="S &amp; L">
     <div class="intro-date">10. Juni 2028</div>
   </div>
 </div>
@@ -559,6 +567,7 @@
         <span class="script">Lukas</span>
       </div>
       <div class="date">10 · JUNI · 2028</div>
+      <div class="countdown" id="countdown"></div>
     </div>
   </section>
 
@@ -619,7 +628,9 @@
     </div>
 
     <div class="schedule-note">
-      <p>Nach der kirchlichen Trauung gibt es direkt vor der Kirche ein paar Getränke und Häppchen zur Stärkung, bevor wir gemeinsam ein Gruppenfoto machen. Im Anschluss geht es für euch weiter nach Heilbronn zum Weingut Amalienhof (Fahrzeit ca. 1 Stunde), wo euch dann Aperitif & Sektempfang erwarten.</p>
+      <p>Um 12:00 Uhr sagen wir uns in der Kirche das Ja-Wort. Direkt im Anschluss wartet vor der Kirche schon eine kleine Stärkung auf euch — ein paar Getränke und Häppchen, während wir die Zeit für Glückwünsche und ein gemeinsames Gruppenfoto nutzen.</p>
+      <p>Danach geht es für euch weiter nach Heilbronn zum Weingut Amalienhof (Fahrzeit ca. 1 Stunde) — nehmt euch die Fahrt gerne entspannt, es eilt nicht. Ab ca. 14:15 Uhr treffen wir uns dort wieder, ab 14:30 Uhr erwarten euch Aperitif & Sektempfang, anschließend Kaffee und der Anschnitt unserer Hochzeitstorte.</p>
+      <p>Um 16:00 Uhr nehmen wir uns Zeit für ein paar Fotos mit euch, bevor es ab 18:30 Uhr zum gemeinsamen Abendessen und ab 21:00 Uhr zu unserem Hochzeitstanz und einer hoffentlich langen, ausgelassenen Nacht übergeht.</p>
       <p>Wir wünschen uns nichts mehr als einen tollen, entspannten Tag mit unseren Liebsten — wenn wir nicht ganz im Timing sind, ist das also überhaupt kein Problem.</p>
       <p>Wir freuen uns auch riesig über eure Beiträge, gerne auch spontan — stimmt das dann bitte einfach mit unseren Trauzeugen ab.</p>
       <p>Wir freuen uns so sehr auf euch.</p>
@@ -696,6 +707,33 @@
       <iframe name="hidden-response-frame" style="display:none;"></iframe>
     </div>
   </section>
+
+  <script>
+    (function(){
+      var els = [document.getElementById('countdown')].filter(Boolean);
+      if(els.length === 0) return;
+      var weddingDate = new Date(2028, 5, 10); // 10. Juni 2028
+      function update(){
+        var now = new Date();
+        var startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        var msPerDay = 1000 * 60 * 60 * 24;
+        var diffDays = Math.round((weddingDate - startOfToday) / msPerDay);
+        var text;
+        if(diffDays > 1){
+          text = 'Noch ' + diffDays + ' Mal schlafen bis zu unserem großen Tag';
+        } else if(diffDays === 1){
+          text = 'Noch 1 Mal schlafen bis zu unserem großen Tag';
+        } else if(diffDays === 0){
+          text = 'Heute ist unser großer Tag!';
+        } else {
+          text = 'Wir haben geheiratet!';
+        }
+        els.forEach(function(el){ el.textContent = text; });
+      }
+      update();
+      setInterval(update, 60 * 60 * 1000); // refresh hourly in case the tab stays open
+    })();
+  </script>
 
   <script>
     (function(){
