@@ -76,10 +76,10 @@
     text-align:center;
     padding-top:64px;
     overflow:hidden;
-    background-image:url('floral-top-right.png');
-    background-repeat:no-repeat;
-    background-position:top right;
-    background-size:auto 420px;
+    background-image:url('floral2-top-right.png'), url('floral2-top-left.png');
+    background-repeat:no-repeat, no-repeat;
+    background-position:top right, top left;
+    background-size:auto 380px, auto 340px;
   }
   .hero-content{position:relative; z-index:1;}
   .hero h1{
@@ -384,6 +384,11 @@
     padding:80px 0 40px;
     text-align:center;
     overflow:hidden;
+    min-height:260px;
+    background-image:url('floral2-bottom-left.png'), url('floral2-bottom-right.png');
+    background-repeat:no-repeat, no-repeat;
+    background-position:bottom left, bottom right;
+    background-size:auto 260px, auto 260px;
   }
   footer .foot-text{
     position:relative;
@@ -403,7 +408,7 @@
     }
     .hero{
       padding-top:40px;
-      background-size:auto 220px;
+      background-size:auto 180px, auto 160px;
     }
     .hero h1{
       font-size:2rem;
@@ -485,14 +490,14 @@
     position:fixed;
     inset:0;
     z-index:1000;
-    background-image:url('seal-desktop.png');
+    background-image:url('seal-desktop.jpg');
     background-size:cover;
     background-position:center;
     transition:opacity 2.4s ease;
   }
   @media (max-width:600px){
     .intro-overlay{
-      background-image:url('seal-mobile.png');
+      background-image:url('seal-mobile.jpg');
     }
   }
   .intro-overlay.opening{
