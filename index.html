@@ -490,6 +490,7 @@
     position:fixed;
     inset:0;
     z-index:1000;
+    background-color:var(--cream);
     background-image:url('seal-desktop.jpg');
     background-size:cover;
     background-position:center;
@@ -498,6 +499,8 @@
   @media (max-width:600px){
     .intro-overlay{
       background-image:url('seal-mobile.jpg');
+      background-size:contain;
+      background-repeat:no-repeat;
     }
   }
   .intro-overlay.opening{
