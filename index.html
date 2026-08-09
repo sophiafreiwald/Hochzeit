@@ -792,7 +792,9 @@
       if(!overlay || !video) return;
 
       var isMobile = window.matchMedia('(max-width: 600px)').matches;
+      video.muted = true;
       video.src = isMobile ? 'intro-mobile.mp4' : 'intro-desktop.mp4';
+      video.load();
 
       var opened = false;
       function openIntro(){
@@ -805,10 +807,15 @@
         }, 1000);
       }
 
+      video.addEventListener('timeupdate', function(){
+        if(video.currentTime >= 2.0){
+          openIntro();
+        }
+      });
       video.addEventListener('ended', openIntro);
       video.addEventListener('error', openIntro);
       // safety fallback in case autoplay is blocked or something goes wrong
-      window.setTimeout(openIntro, 7000);
+      window.setTimeout(openIntro, 4000);
 
       var playPromise = video.play();
       if(playPromise && playPromise.catch){
