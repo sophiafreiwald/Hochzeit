@@ -808,7 +808,7 @@
         }, 600);
       }
 
-      var revealAt = isMobile ? 2.0 : 1.0;
+      var revealAt = isMobile ? 4.0 : 1.0;
       video.addEventListener('timeupdate', function(){
         if(video.currentTime >= revealAt){
           openIntro();
@@ -827,7 +827,7 @@
         }
       });
       // safety fallback in case autoplay is blocked or something goes wrong
-      window.setTimeout(openIntro, 4000);
+      window.setTimeout(openIntro, 6000);
 
       var playPromise = video.play();
       if(playPromise && playPromise.catch){
