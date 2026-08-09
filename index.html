@@ -793,6 +793,7 @@
 
       var isMobile = window.matchMedia('(max-width: 600px)').matches;
       video.muted = true;
+      var triedFallback = false;
       video.src = isMobile ? 'intro-mobile.mp4' : 'intro-desktop.mp4';
       video.load();
 
@@ -813,7 +814,17 @@
         }
       });
       video.addEventListener('ended', openIntro);
-      video.addEventListener('error', openIntro);
+      video.addEventListener('error', function(){
+        if(isMobile && !triedFallback){
+          triedFallback = true;
+          video.src = 'intro-desktop.mp4';
+          video.load();
+          var p = video.play();
+          if(p && p.catch){ p.catch(function(){ openIntro(); }); }
+        } else {
+          openIntro();
+        }
+      });
       // safety fallback in case autoplay is blocked or something goes wrong
       window.setTimeout(openIntro, 4000);
 
