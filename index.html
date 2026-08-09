@@ -402,8 +402,8 @@
       padding:56px 0;
     }
     .hero{
-      padding-top:70px;
-      background-size:auto 150px;
+      padding-top:120px;
+      background-size:auto 120px;
     }
     .hero h1{
       font-size:2rem;
@@ -486,17 +486,14 @@
     inset:0;
     z-index:1000;
     background-color:var(--cream);
-    background-image:url('seal-desktop.jpg');
-    background-size:cover;
-    background-position:center;
-    transition:opacity 2.4s ease;
+    transition:opacity 1s ease;
+    overflow:hidden;
   }
-  @media (max-width:600px){
-    .intro-overlay{
-      background-image:url('seal-mobile-v2.jpg');
-      background-size:contain;
-      background-repeat:no-repeat;
-    }
+  #intro-video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
   }
   .intro-overlay.opening{
     opacity:0;
@@ -513,7 +510,9 @@
 
 <noscript><style>.intro-overlay{display:none !important;} body{overflow:auto !important;}</style></noscript>
 
-<div class="intro-overlay" id="intro-overlay"></div>
+<div class="intro-overlay" id="intro-overlay">
+  <video id="intro-video" muted playsinline autoplay></video>
+</div>
 
 
 <div class="page">
@@ -789,7 +788,12 @@
   <script>
     (function(){
       var overlay = document.getElementById('intro-overlay');
-      if(!overlay) return;
+      var video = document.getElementById('intro-video');
+      if(!overlay || !video) return;
+
+      var isMobile = window.matchMedia('(max-width: 600px)').matches;
+      video.src = isMobile ? 'intro-mobile.mp4' : 'intro-desktop.mp4';
+
       var opened = false;
       function openIntro(){
         if(opened) return;
@@ -798,9 +802,19 @@
         document.body.classList.remove('intro-locked');
         setTimeout(function(){
           overlay.classList.add('opened');
-        }, 2500);
+        }, 1000);
       }
-      window.setTimeout(openIntro, 1200);
+
+      video.addEventListener('ended', openIntro);
+      video.addEventListener('error', openIntro);
+      // safety fallback in case autoplay is blocked or something goes wrong
+      window.setTimeout(openIntro, 7000);
+
+      var playPromise = video.play();
+      if(playPromise && playPromise.catch){
+        playPromise.catch(function(){ openIntro(); });
+      }
+
       overlay.addEventListener('click', openIntro);
       overlay.addEventListener('keydown', function(e){
         if(e.key === 'Enter' || e.key === ' '){ openIntro(); }
