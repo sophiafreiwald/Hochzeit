@@ -486,7 +486,7 @@
     inset:0;
     z-index:1000;
     background-color:var(--cream);
-    transition:opacity 1s ease;
+    transition:opacity 0.6s ease;
     overflow:hidden;
   }
   #intro-video{
@@ -804,11 +804,11 @@
         document.body.classList.remove('intro-locked');
         setTimeout(function(){
           overlay.classList.add('opened');
-        }, 1000);
+        }, 600);
       }
 
       video.addEventListener('timeupdate', function(){
-        if(video.currentTime >= 2.0){
+        if(video.currentTime >= 1.0){
           openIntro();
         }
       });
