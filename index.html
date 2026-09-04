@@ -479,11 +479,6 @@
     padding:80px 0 40px;
     text-align:center;
     overflow:hidden;
-    min-height:220px;
-    background-image:url('floral-footer.png');
-    background-repeat:no-repeat;
-    background-position:bottom center;
-    background-size:auto 220px;
   }
   footer .foot-text{
     position:relative;
@@ -578,6 +573,34 @@
     }
   }
 
+  /* ---- fixed side florals ---- */
+  .side-floral{
+    position:fixed;
+    bottom:0;
+    height:62vh;
+    max-height:640px;
+    width:auto;
+    opacity:0.4;
+    pointer-events:none;
+  }
+  .side-floral-left{
+    left:0;
+  }
+  .side-floral-right{
+    right:0;
+  }
+  @media (max-width:900px){
+    .side-floral{
+      height:40vh;
+      opacity:0.3;
+    }
+  }
+  @media (max-width:768px){
+    .side-floral{
+      display:none;
+    }
+  }
+
   /* ---- intro opening card ---- */
   body.intro-locked{
     overflow:hidden;
@@ -616,6 +639,9 @@
   <video id="intro-video" muted playsinline autoplay></video>
 </div>
 
+
+<img class="side-floral side-floral-left" src="floral-side-left.png" alt="" aria-hidden="true">
+<img class="side-floral side-floral-right" src="floral-side-right.png" alt="" aria-hidden="true">
 
 <div class="page">
 
@@ -697,6 +723,15 @@
       </div>
 
     </div>
+
+    <div class="schedule-note">
+      <p>Um 12:00 Uhr sagen wir uns in der Kirche das Ja-Wort. Direkt im Anschluss wartet vor der Kirche schon eine kleine Stärkung auf euch — ein paar Getränke und Häppchen, während wir die Zeit für Glückwünsche und ein gemeinsames Gruppenfoto nutzen.</p>
+      <p>Danach geht es für euch weiter zur Gärtnerei Elsäßer in Stuttgart-Vaihingen — nehmt euch die Fahrt gerne entspannt, es eilt nicht. Ab ca. 14:15 Uhr treffen wir uns dort wieder, ab 14:30 Uhr erwarten euch Aperitif & Sektempfang, anschließend Kaffee und der Anschnitt unserer Hochzeitstorte.</p>
+      <p>Um 16:00 Uhr nehmen wir uns Zeit für ein paar Fotos mit euch, bevor es ab 18:30 Uhr zum gemeinsamen Abendessen und ab 21:00 Uhr zu unserem Hochzeitstanz und einer hoffentlich langen, ausgelassenen Nacht übergeht.</p>
+      <p>Wir wünschen uns nichts mehr als einen tollen, entspannten Tag mit unseren Liebsten — wenn wir nicht ganz im Timing sind, ist das also überhaupt kein Problem.</p>
+      <p>Wir freuen uns auch riesig über eure Beiträge, gerne auch spontan — stimmt das dann bitte einfach mit unseren Trauzeugen ab.</p>
+      <p>Wir freuen uns so sehr auf euch.</p>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -774,16 +809,8 @@
 
   <!-- MITBRINGLISTE -->
   <section class="contrib reveal" id="mitbringen">
-<h2>Häppchen zum Sektempfang</h2> <p class="contrib-intro"> Jeder hat doch dieses eine Rezept, das besonders gerne gebacken, zubereitet oder zu Feiern mitgebracht wird. Genau diese kleinen Lieblingsleckereien dürfen gerne Teil unseres Sektempfangs werden. 🤍
-
-Ob Kuchen, Muffins, herzhafte Spieße, Blätterteiggebäck oder eine ganz eigene Spezialität – der Kreativität sind keine Grenzen gesetzt.
-  <br>
-
-Da wir mittags auch unsere Hochzeitstorte anschneiden und Kaffee anbieten werden, darf ganz nach Lust und Laune etwas Süßes oder Herzhaftes mitgebracht werden.
-
-Wir freuen uns über jede Kleinigkeit und sagen schon jetzt von Herzen Danke für die Unterstützung!
-
-</p>
+    <h2>Wer bringt was mit?</h2>
+    <p class="contrib-intro">Bitte Fingerfood, das einfach gegessen werden kann — Kuchen, Muffins, Spieße, Blätterteig-Gebäck, was auch immer ihr gerne möchtet. Stimmt euch hierzu bitte mit unseren Trauzeugen Jonas und Adi ab. Vielen Dank für eure Unterstützung!</p>
 
     <form id="contrib-form" class="contrib-form">
       <div class="field">
@@ -791,8 +818,8 @@ Wir freuen uns über jede Kleinigkeit und sagen schon jetzt von Herzen Danke fü
         <input type="text" id="contrib-name" name="name" required>
       </div>
       <div class="field">
-        <label for="contrib-item">Das bringe ich/wir mit</label>
-        <input type="text" id="contrib-item" name="snack" placeholder="z. B. Blätterteigschnecken" required>
+        <label for="contrib-item">Das bringe ich mit</label>
+        <input type="text" id="contrib-item" name="snack" placeholder="z. B. ein Blech Muffins" required>
       </div>
       <button type="submit" class="submit-btn">Eintragen</button>
       <p class="form-note" id="contrib-form-note">Danke — steht auf der Liste! 💛</p>
@@ -969,45 +996,39 @@ Wir freuen uns über jede Kleinigkeit und sagen schon jetzt von Herzen Danke fü
   <div class="divider"></div>
 
   <!-- INFO -->
-  <!-- INFO -->
+  <section class="info" id="infos">
+    <h2>Das solltest du wissen.</h2>
 
-<section class="info" id="infos">
-  <h2>Gut zu wissen</h2>
+    <div class="info-block">
+      <span class="eyebrow">Anfahrt zur Kirche</span>
+      <p>Name der Kirche</p>
+      <p>Straße Hausnummer, PLZ Ort</p>
+      <p>Parkplätze sind in der Nähe vorhanden.</p>
+    </div>
 
-  <div class="info-block">
-    <span class="eyebrow">Trauung & Anfahrt</span>
-    <p>Name der Kirche</p>
-    <p>Straße Hausnummer, PLZ Ort</p>
-    <p>Parkmöglichkeiten findet ihr ganz in der Nähe der Kirche.</p>
-  </div>
+    <div class="info-block">
+      <span class="eyebrow">Eventlocation</span>
+      <p>Gärtnerei Elsäßer</p>
+      <p><a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x4799dc384d273c0b:0xf9052f973c60d007?sa=X&amp;ved=1t:8290&amp;ictx=111" target="_blank" rel="noopener">Katzenbachstraße 207, 70563 Stuttgart-Vaihingen</a></p>
+    </div>
 
-  <div class="info-block">
-    <span class="eyebrow">Unsere Feier</span>
-    <p>Gärtnerei Elsäßer</p>
-    <p><a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x4799dc384d273c0b:0xf9052f973c60d007?sa=X&amp;ved=1t:8290&amp;ictx=111" target="_blank" rel="noopener">Katzenbachstraße 207, 70563 Stuttgart-Vaihingen</a></p>
-    <p>Nach unserer Trauung freuen wir uns darauf, gemeinsam mit euch in der Gärtnerei Elsäßer weiterzufeiern.</p>
-  </div>
+    <div class="info-block">
+      <span class="eyebrow">Übernachtungsmöglichkeiten</span>
+      <p><a href="https://www.relexa-hotel-stuttgart.de/" target="_blank" rel="noopener">Relexa Waldhotel</a></p>
+      <p><a href="https://all.accor.com/hotel/A6Q4/index.de.shtml" target="_blank" rel="noopener">Ibis Styles Vaihingen</a></p>
+    </div>
 
-  <div class="info-block">
-    <span class="eyebrow">Für eine entspannte Nacht</span>
-    <p>Wer nach der Feier nicht mehr nach Hause fahren möchte, findet ganz in der Nähe verschiedene Übernachtungsmöglichkeiten:</p>
-    <p><a href="https://www.relexa-hotel-stuttgart.de/" target="_blank" rel="noopener">Relexa Waldhotel</a></p>
-    <p><a href="https://all.accor.com/hotel/A6Q4/index.de.shtml" target="_blank" rel="noopener">Ibis Styles Vaihingen</a></p>
-  </div>
+    <div class="info-block">
+      <span class="eyebrow">Dresscode</span>
+      <p>Sommerlich schick.</p>
+      <p>Wir freuen uns über Pastelltöne — bitte kein Weiß oder Hellbeige.</p>
+    </div>
 
-  <div class="info-block">
-    <span class="eyebrow">Dresscode</span>
-    <p>Sommerlich schick – so dürft ihr euch gerne für unseren großen Tag kleiden.</p>
-    <p>Über sommerliche Farben und Pastelltöne freuen wir uns besonders. </p>
-  </div>
-
-  <div class="info-block">
-    <span class="eyebrow">Geschenke</span>
-    <p>Das schönste Geschenk für uns ist, diesen besonderen Tag gemeinsam mit euch verbringen zu dürfen.</p>
-    <p>Wer uns darüber hinaus eine Freude machen möchte, darf gerne etwas zu unserer Flitterwochenkasse beitragen.</p>
-  </div>
-</section>
-
+    <div class="info-block">
+      <span class="eyebrow">Hochzeitsgeschenk</span>
+      <p>Euer Kommen ist uns das größte Geschenk.</p>
+      <p>Wer uns dennoch eine Freude machen möchte: wir freuen uns über einen Beitrag zu unserer Flitterwochenkasse.</p>
+    </div>
 
     <div class="info-block">
       <span class="eyebrow">Trauzeugen</span>
