@@ -51,6 +51,40 @@
     margin:0 auto;
     padding:0 28px;
   }
+  .site-nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    display:flex;
+    justify-content:center;
+    gap:28px;
+    padding:16px 12px;
+    background:rgba(253,252,249,0.92);
+    -webkit-backdrop-filter:blur(6px);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--hair);
+    overflow-x:auto;
+    white-space:nowrap;
+    margin:0 -28px;
+  }
+  .site-nav a{
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.74rem;
+    color:var(--rose);
+    flex-shrink:0;
+  }
+  .site-nav a:hover{
+    text-decoration:underline;
+  }
+  @media (max-width:600px){
+    .site-nav{
+      gap:16px;
+      padding:14px 20px;
+      font-size:0.68rem;
+    }
+  }
   section{
     position:relative;
     padding:88px 0;
@@ -224,6 +258,12 @@
     color:var(--rose);
     margin-bottom:10px;
   }
+  .field-hint{
+    font-size:0.88rem;
+    color:#7a766e;
+    margin:-4px 0 12px;
+    line-height:1.5;
+  }
   .field input[type="text"],
   .field input[type="number"],
   .field textarea{
@@ -291,6 +331,60 @@
   }
   .form-note.visible{
     display:block;
+  }
+
+  /* ---- contribution list ---- */
+  .contrib{
+    text-align:center;
+  }
+  .contrib h2{
+    font-size:2.1rem;
+    color:var(--rose);
+    margin-bottom:20px;
+  }
+  .contrib-intro{
+    max-width:480px;
+    margin:0 auto 40px;
+    font-size:1rem;
+  }
+  .contrib-form{
+    max-width:420px;
+    margin:0 auto 56px;
+    text-align:left;
+  }
+  .contrib-list{
+    max-width:420px;
+    margin:0 auto;
+  }
+  .contrib-status{
+    color:#7a766e;
+    font-size:0.95rem;
+  }
+  .contrib-items{
+    list-style:none;
+    margin:0;
+    padding:0;
+    text-align:left;
+  }
+  .contrib-items li{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    padding:12px 0;
+    border-bottom:1px solid var(--hair);
+    font-size:0.98rem;
+  }
+  .contrib-items li:last-child{
+    border-bottom:none;
+  }
+  .contrib-name{
+    color:var(--ink);
+    font-weight:400;
+    flex-shrink:0;
+  }
+  .contrib-item{
+    color:#7a766e;
+    text-align:right;
   }
 
   /* ---- photo gallery ---- */
@@ -525,6 +619,14 @@
 
 <div class="page">
 
+  <nav class="site-nav" aria-label="Seitennavigation">
+    <a href="#ablauf">Ablauf</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#rsvp">Zusage</a>
+    <a href="#mitbringen">Gaben zum Sektempfang</a>
+    <a href="#infos">Sonstige Infos</a>
+  </nav>
+
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content reveal" id="hero-content">
@@ -547,12 +649,13 @@
     <p>Gemeinsam lachen, gemeinsam wachsen, gemeinsam durchs Leben gehen.</p>
     <p>Nach 11 gemeinsamen Jahren möchten wir uns am 10. Juni 2028 das Ja-Wort geben.</p>
     <p>Wir könnten uns nichts Schöneres vorstellen, als diesen besonderen Tag mit euch gemeinsam zu feiern.</p>
+    <div class="sign-off script">Sophia und Lukas</div>
   </section>
 
   <div class="divider"></div>
 
   <!-- SCHEDULE -->
-  <section class="schedule reveal-stagger">
+  <section class="schedule reveal-stagger" id="ablauf">
     <h2>Der Tag.</h2>
     <div class="schedule-grid">
 
@@ -595,9 +698,20 @@
 
     </div>
 
+    <div class="schedule-note">
+      <p>Um 12:00 Uhr sagen wir uns in der Kirche das Ja-Wort. Direkt im Anschluss wartet vor der Kirche schon eine kleine Stärkung auf euch — ein paar Getränke und Häppchen, während wir die Zeit für Glückwünsche und ein gemeinsames Gruppenfoto nutzen.</p>
+      <p>Danach geht es für euch weiter zur Gärtnerei Elsäßer in Stuttgart-Vaihingen — nehmt euch die Fahrt gerne entspannt, es eilt nicht. Ab ca. 14:15 Uhr treffen wir uns dort wieder, ab 14:30 Uhr erwarten euch Aperitif & Sektempfang, anschließend Kaffee und der Anschnitt unserer Hochzeitstorte.</p>
+      <p>Um 16:00 Uhr nehmen wir uns Zeit für ein paar Fotos mit euch, bevor es ab 18:30 Uhr zum gemeinsamen Abendessen und ab 21:00 Uhr zu unserem Hochzeitstanz und einer hoffentlich langen, ausgelassenen Nacht übergeht.</p>
+      <p>Wir wünschen uns nichts mehr als einen tollen, entspannten Tag mit unseren Liebsten — wenn wir nicht ganz im Timing sind, ist das also überhaupt kein Problem.</p>
+      <p>Wir freuen uns auch riesig über eure Beiträge, gerne auch spontan — stimmt das dann bitte einfach mit unseren Trauzeugen ab.</p>
+      <p>Wir freuen uns so sehr auf euch.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
 
   <!-- GALLERY -->
-  <section class="gallery reveal">
+  <section class="gallery reveal" id="galerie">
     <h2>Ein paar Momente.</h2>
     <div class="gallery-grid">
       <div class="g-large">
@@ -617,7 +731,7 @@
   <!-- RSVP -->
   <section class="rsvp reveal" id="rsvp">
     <h2>Wir freuen uns auf euch.</h2>
-    <div class="deadline">Bitte meldet euch bis zum <b> 28. Februar 2028 </b> zurück.</div>
+    <div class="deadline">Bitte meldet euch bis zum <b>28. Februar 2028</b> zurück.</div>
 
     <div class="form-wrap">
       <form id="rsvp-form"
@@ -648,8 +762,8 @@
         </div>
 
         <div class="field">
-          <label for="diet">Allergien </label>
-          <input type="text" id="diet" name="diet" placeholder="z. B. Nussallergie, Laktose, Zöliakie etc. ">
+          <label for="diet">Allergien</label>
+          <input type="text" id="diet" name="diet" placeholder="z. B. Nussallergie, Laktose, Zöliakie etc.">
         </div>
 
         <div class="field">
@@ -664,6 +778,129 @@
       <iframe name="hidden-response-frame" style="display:none;"></iframe>
     </div>
   </section>
+
+  <div class="divider"></div>
+
+  <!-- MITBRINGLISTE -->
+  <section class="contrib reveal" id="mitbringen">
+    <h2>Wer bringt was mit?</h2>
+    <p class="contrib-intro">Bitte Fingerfood, das einfach gegessen werden kann — Kuchen, Muffins, Spieße, Blätterteig-Gebäck, was auch immer ihr gerne möchtet. Stimmt euch hierzu bitte mit unseren Trauzeugen Jonas und Adi ab. Vielen Dank für eure Unterstützung!</p>
+
+    <form id="contrib-form" class="contrib-form">
+      <div class="field">
+        <label for="contrib-name">Euer Name</label>
+        <input type="text" id="contrib-name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="contrib-item">Das bringe ich mit</label>
+        <input type="text" id="contrib-item" name="snack" placeholder="z. B. ein Blech Muffins" required>
+      </div>
+      <button type="submit" class="submit-btn">Eintragen</button>
+      <p class="form-note" id="contrib-form-note">Danke — steht auf der Liste! 💛</p>
+    </form>
+
+    <div class="contrib-list" id="contrib-list">
+      <p class="contrib-status">Liste wird geladen …</p>
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      var form = document.getElementById('contrib-form');
+      var note = document.getElementById('contrib-form-note');
+      if(!form) return;
+
+      // Gleiche Web-App-URL wie beim RSVP-Formular oben.
+      var SCRIPT_URL = document.getElementById('rsvp-form').action;
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var data = new FormData(form);
+        data.append('formType', 'contribution');
+        fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: data })
+          .then(function(){
+            note.classList.add('visible');
+            form.reset();
+            loadContribList();
+          })
+          .catch(function(){
+            note.textContent = 'Hat leider nicht geklappt, bitte nochmal versuchen.';
+            note.classList.add('visible');
+          });
+      });
+    })();
+  </script>
+
+  <script>
+    function loadContribList(){
+      var list = document.getElementById('contrib-list');
+      if(!list) return;
+
+      // WICHTIG: Hier die "Veröffentlichen"-CSV-URL des Tabs "Mitbringliste (öffentlich)" eintragen.
+      // Anleitung: siehe google-apps-script/README.md
+      var CSV_URL = 'YOUR_PUBLISHED_CSV_URL_HERE';
+
+      function parseCSVLine(line){
+        var result = [];
+        var cur = '';
+        var inQuotes = false;
+        for(var i=0; i<line.length; i++){
+          var c = line[i];
+          if(inQuotes){
+            if(c === '"'){
+              if(line[i+1] === '"'){ cur += '"'; i++; }
+              else { inQuotes = false; }
+            } else { cur += c; }
+          } else {
+            if(c === '"'){ inQuotes = true; }
+            else if(c === ','){ result.push(cur); cur = ''; }
+            else { cur += c; }
+          }
+        }
+        result.push(cur);
+        return result;
+      }
+
+      if(CSV_URL.indexOf('YOUR_PUBLISHED_CSV_URL_HERE') !== -1){
+        list.innerHTML = '<p class="contrib-status">Liste noch nicht verbunden.</p>';
+        return;
+      }
+
+      fetch(CSV_URL)
+        .then(function(res){ return res.text(); })
+        .then(function(text){
+          var lines = text.split(/\r?\n/).filter(function(l){ return l.trim() !== ''; });
+          lines.shift(); // header row (Name, Beitrag)
+          if(lines.length === 0){
+            list.innerHTML = '<p class="contrib-status">Noch niemand eingetragen — seid die Ersten!</p>';
+            return;
+          }
+          var html = '<ul class="contrib-items">';
+          lines.forEach(function(line){
+            var cols = parseCSVLine(line);
+            var name = (cols[0] || '').trim();
+            var item = (cols[1] || '').trim();
+            if(name || item){
+              html += '<li><span class="contrib-name">' + escapeHtml(name) + '</span><span class="contrib-item">' + escapeHtml(item) + '</span></li>';
+            }
+          });
+          html += '</ul>';
+          list.innerHTML = html;
+        })
+        .catch(function(){
+          list.innerHTML = '<p class="contrib-status">Liste konnte gerade nicht geladen werden.</p>';
+        });
+
+      function escapeHtml(str){
+        var div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+    }
+    loadContribList();
+  </script>
+
+  <div class="divider"></div>
 
   <script>
     (function(){
@@ -733,7 +970,7 @@
   <div class="divider"></div>
 
   <!-- INFO -->
-  <section class="info">
+  <section class="info" id="infos">
     <h2>Das solltest du wissen.</h2>
 
     <div class="info-block">
@@ -751,15 +988,14 @@
 
     <div class="info-block">
       <span class="eyebrow">Übernachtungsmöglichkeiten</span>
-      <p> </p> 
-      <p>Relexa Waldhotel <ahref>https://www.relexa-hotel-stuttgart.de/</ahref></p>
-      <p>Ibis Style Vaihingen <aharef>https://all.accor.com/hotel/A6Q4/index.de.shtml </aharef></p>
+      <p><a href="https://www.relexa-hotel-stuttgart.de/" target="_blank" rel="noopener">Relexa Waldhotel</a></p>
+      <p><a href="https://all.accor.com/hotel/A6Q4/index.de.shtml" target="_blank" rel="noopener">Ibis Styles Vaihingen</a></p>
     </div>
 
     <div class="info-block">
       <span class="eyebrow">Dresscode</span>
       <p>Sommerlich schick.</p>
-      <p>Wir freuen uns über Pastelltöne — bitte kein Weiß.</p>
+      <p>Wir freuen uns über Pastelltöne — bitte kein Weiß oder Hellbeige.</p>
     </div>
 
     <div class="info-block">
