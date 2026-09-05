@@ -4,1145 +4,2198 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sophia & Lukas — Wir sagen Ja.</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Alex+Brush&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --cream:#fdfcf9;
-    --ink:#3d3a35;
-    --rose:#ab8a5c;
-    --sage:#8b9573;
-    --sage-light:#e7e9df;
-    --hair:#dcd6cb;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--cream);
-    color:var(--ink);
-    font-family:'Jost', sans-serif;
-    font-weight:300;
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{
-    font-family:'Cormorant Garamond', serif;
-    font-weight:500;
-    margin:0;
-    color:var(--ink);
-  }
-  .script{
-    font-family:'Alex Brush', cursive;
-    color:var(--rose);
-    font-weight:400;
-  }
-  .eyebrow{
-    text-transform:uppercase;
-    letter-spacing:0.28em;
-    font-size:0.72rem;
-    color:var(--rose);
-  }
-  a{color:inherit;}
+:root{
+  --cream:#fdfcf9;
+  --ink:#3d3a35;
+  --rose:#ab8a5c;
+  --sage:#8b9573;
+  --sage-light:#e7e9df;
+  --hair:#dcd6cb;
+}
 
-  /* ---- layout shell ---- */
-  .page{
-    max-width:760px;
-    margin:0 auto;
-    padding:0 28px;
-  }
+*{box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Jost', sans-serif;
+  font-weight:300;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3{
+  font-family:'Cormorant Garamond', serif;
+  font-weight:500;
+  margin:0;
+  color:var(--ink);
+}
+
+.script{
+  font-family:'Alex Brush', cursive;
+  color:var(--rose);
+  font-weight:400;
+}
+
+.eyebrow{
+  text-transform:uppercase;
+  letter-spacing:0.28em;
+  font-size:0.72rem;
+  color:var(--rose);
+}
+
+a{color:inherit;}
+
+
+/* ---- layout shell ---- */
+
+.page{
+  max-width:760px;
+  margin:0 auto;
+  padding:0 28px;
+}
+
+.site-nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  display:flex;
+  justify-content:center;
+  gap:28px;
+  padding:16px 12px;
+  background:rgba(253,252,249,0.92);
+  -webkit-backdrop-filter:blur(6px);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--hair);
+  overflow-x:auto;
+  white-space:nowrap;
+  margin:0 -28px;
+}
+
+.site-nav a{
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  font-size:0.74rem;
+  color:var(--rose);
+  flex-shrink:0;
+}
+
+.site-nav a:hover{
+  text-decoration:underline;
+}
+
+@media (max-width:600px){
   .site-nav{
-    position:sticky;
-    top:0;
-    z-index:100;
-    display:flex;
-    justify-content:center;
-    gap:28px;
-    padding:16px 12px;
-    background:rgba(253,252,249,0.92);
-    -webkit-backdrop-filter:blur(6px);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--hair);
-    overflow-x:auto;
-    white-space:nowrap;
-    margin:0 -28px;
+    flex-wrap:wrap;
+    overflow-x:visible;
+    white-space:normal;
+    gap:10px 18px;
+    padding:14px 16px;
+    font-size:0.68rem;
   }
-  .site-nav a{
-    text-decoration:none;
-    text-transform:uppercase;
-    letter-spacing:0.14em;
-    font-size:0.74rem;
-    color:var(--rose);
-    flex-shrink:0;
-  }
-  .site-nav a:hover{
-    text-decoration:underline;
-  }
-  @media (max-width:600px){
-    .site-nav{
-      flex-wrap:wrap;
-      overflow-x:visible;
-      white-space:normal;
-      gap:10px 18px;
-      padding:14px 16px;
-      font-size:0.68rem;
-    }
-  }
-  section{
-    position:relative;
-    padding:88px 0;
-  }
-  .fold-line{
-    position:absolute;
-    left:50%;
-    top:0;
-    bottom:0;
-    width:0;
-    border-left:1px dashed var(--hair);
-    z-index:0;
-  }
-  .divider{
-    width:1px;
-    height:56px;
-    background:var(--hair);
-    margin:0 auto;
-  }
+}
 
-  /* ---- hero ---- */
-  .hero{
-    text-align:center;
-    padding-top:100px;
-    overflow:hidden;
-  }
-  .hero-savetext{
-    font-size:2.2rem;
-    line-height:1;
-    margin-bottom:6px;
-  }
-  .hero-content{position:relative; z-index:1;}
-  .hero h1{
-    font-size:2.6rem;
-    color:var(--rose);
-    letter-spacing:0.02em;
-    margin-bottom:34px;
-  }
-  .names{
-    font-size:3.4rem;
-    line-height:1.15;
-  }
-  .names .and{
+section{
+  position:relative;
+  padding:88px 0;
+}
+
+.divider{
+  width:1px;
+  height:56px;
+  background:var(--hair);
+  margin:0 auto;
+}
+
+
+/* ---- hero ---- */
+
+.hero{
+  text-align:center;
+  padding-top:100px;
+  overflow:hidden;
+}
+
+.hero-savetext{
+  font-size:2.2rem;
+  line-height:1;
+  margin-bottom:6px;
+}
+
+.hero-content{
+  position:relative;
+  z-index:1;
+}
+
+.hero h1{
+  font-size:2.6rem;
+  color:var(--rose);
+  letter-spacing:0.02em;
+  margin-bottom:34px;
+}
+
+.names{
+  font-size:3.4rem;
+  line-height:1.15;
+}
+
+.names .and{
+  display:block;
+  font-family:'Jost', sans-serif;
+  font-weight:300;
+  font-size:0.9rem;
+  letter-spacing:0.35em;
+  color:var(--ink);
+  text-transform:uppercase;
+  margin:6px 0;
+}
+
+.date{
+  margin-top:26px;
+  letter-spacing:0.2em;
+  font-size:0.95rem;
+  color:var(--ink);
+}
+
+.countdown{
+  margin-top:18px;
+  font-family:'Cormorant Garamond', serif;
+  font-size:1.3rem;
+  color:var(--rose);
+  letter-spacing:0.02em;
+}
+
+/* Zeilenumbruch nur auf dem Handy */
+.mobile-break{
+  display:none;
+}
+
+@media (max-width:600px){
+  .mobile-break{
     display:block;
-    font-family:'Jost', sans-serif;
-    font-weight:300;
-    font-size:0.9rem;
-    letter-spacing:0.35em;
-    color:var(--ink);
-    text-transform:uppercase;
-    margin:6px 0;
   }
-  .date{
-    margin-top:26px;
-    letter-spacing:0.2em;
-    font-size:0.95rem;
-    color:var(--ink);
-  }
-  .countdown{
-    margin-top:18px;
-    font-family:'Cormorant Garamond', serif;
-    font-size:1.3rem;
-    color:var(--rose);
-    letter-spacing:0.02em;
-  }
+}
 
-  /* ---- intro text ---- */
-  .intro{
-    text-align:center;
-  }
-  .intro p{
-    max-width:480px;
-    margin:0 auto 20px;
-    font-size:1.05rem;
-  }
-  .intro .sign-off{
-    margin-top:34px;
-    font-size:1.6rem;
-  }
 
-  /* ---- schedule ---- */
-  .schedule h2{
-    text-align:center;
-    font-size:2.1rem;
-    color:var(--rose);
-    margin-bottom:56px;
-  }
+/* ---- intro text ---- */
+
+.intro{
+  text-align:center;
+}
+
+.intro p{
+  max-width:480px;
+  margin:0 auto 20px;
+  font-size:1.05rem;
+}
+
+.intro .sign-off{
+  margin-top:34px;
+  font-size:1.6rem;
+}
+
+
+/* ---- schedule ---- */
+
+.schedule h2{
+  text-align:center;
+  font-size:2.1rem;
+  color:var(--rose);
+  margin-bottom:56px;
+}
+
+.schedule-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:44px 24px;
+  position:relative;
+  z-index:1;
+}
+
+.schedule-item{
+  text-align:center;
+}
+
+.schedule-item img{
+  width:auto;
+  height:64px;
+  margin-bottom:14px;
+}
+
+.schedule-item .time{
+  font-size:0.95rem;
+  letter-spacing:0.05em;
+  color:var(--ink);
+  font-weight:400;
+}
+
+.schedule-item .label{
+  font-size:0.85rem;
+  color:#7a766e;
+  margin-top:2px;
+}
+
+@media (max-width:560px){
   .schedule-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:44px 24px;
-    position:relative;
-    z-index:1;
+    grid-template-columns:repeat(2, 1fr);
   }
-  .schedule-item{
-    text-align:center;
-  }
-  .schedule-item svg{
-    width:38px;
-    height:38px;
-    stroke:var(--sage);
-    fill:none;
-    stroke-width:1.4;
-    margin-bottom:14px;
-  }
-  .schedule-item img{
-    width:auto;
-    height:64px;
-    margin-bottom:14px;
-  }
-  .schedule-item .time{
-    font-size:0.95rem;
-    letter-spacing:0.05em;
-    color:var(--ink);
-    font-weight:400;
-  }
-  .schedule-item .label{
-    font-size:0.85rem;
-    color:#7a766e;
-    margin-top:2px;
-  }
-  @media (max-width: 560px){
-    .schedule-grid{grid-template-columns:repeat(2, 1fr);}
-  }
-  .schedule-note{
-    max-width:480px;
-    margin:56px auto 0;
-    text-align:center;
-    font-size:1rem;
-    position:relative;
-    z-index:1;
-  }
-  .schedule-note p{
-    margin:0 0 16px;
-  }
-  .schedule-note p:last-child{
-    margin-bottom:0;
-  }
+}
 
-  /* ---- RSVP ---- */
-  .rsvp{
-    text-align:center;
-  }
-  .rsvp h2{
-    font-size:2.1rem;
-    color:var(--rose);
-  }
-  .rsvp .deadline{
-    margin-top:10px;
-    font-size:0.9rem;
-    color:#7a766e;
-    letter-spacing:0.03em;
-  }
-  .form-wrap{
-    margin-top:44px;
-    position:relative;
-    z-index:1;
-    text-align:left;
-    max-width:440px;
-    margin-left:auto;
-    margin-right:auto;
-  }
-  .field{
-    margin-bottom:30px;
-  }
-  .field label{
-    display:block;
-    text-transform:uppercase;
-    letter-spacing:0.18em;
-    font-size:0.72rem;
-    color:var(--rose);
-    margin-bottom:10px;
-  }
-  .field-hint{
-    font-size:0.88rem;
-    color:#7a766e;
-    margin:-4px 0 12px;
-    line-height:1.5;
-  }
-  .field input[type="text"],
-  .field input[type="number"],
-  .field textarea{
-    width:100%;
-    border:none;
-    border-bottom:1px solid var(--hair);
-    background:transparent;
-    padding:8px 2px;
-    font-family:'Jost', sans-serif;
-    font-weight:300;
-    font-size:1rem;
-    color:var(--ink);
-    outline:none;
-    transition:border-color 0.2s;
-  }
-  .field input[type="text"]:focus,
-  .field input[type="number"]:focus,
-  .field textarea:focus{
-    border-bottom-color:var(--rose);
-  }
-  .field textarea{
-    resize:vertical;
-    min-height:70px;
-  }
-  .radio-row{
-    display:flex;
-    gap:28px;
-  }
-  .radio-option{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-size:0.98rem;
-    cursor:pointer;
-  }
-  .radio-option input{
-    accent-color:var(--rose);
-    width:16px;
-    height:16px;
-  }
-  .submit-btn{
-    display:block;
-    margin:44px auto 0;
-    padding:14px 42px;
-    background:transparent;
-    border:1px solid var(--rose);
-    color:var(--rose);
-    font-family:'Jost', sans-serif;
-    text-transform:uppercase;
-    letter-spacing:0.18em;
-    font-size:0.78rem;
-    cursor:pointer;
-    transition:background 0.2s, color 0.2s;
-  }
-  .submit-btn:hover{
-    background:var(--rose);
-    color:var(--cream);
-  }
-  .form-note{
-    text-align:center;
-    font-size:0.85rem;
-    color:#7a766e;
-    margin-top:18px;
-    display:none;
-  }
-  .form-note.visible{
-    display:block;
-  }
+.schedule-note{
+  max-width:480px;
+  margin:56px auto 0;
+  text-align:center;
+  font-size:1rem;
+  position:relative;
+  z-index:1;
+}
 
-  /* ---- contribution list ---- */
-  .contrib{
-    text-align:center;
-  }
-  .contrib h2{
-    font-size:2.1rem;
-    color:var(--rose);
-    margin-bottom:20px;
-  }
-  .contrib-intro{
-    max-width:480px;
-    margin:0 auto 40px;
-    font-size:1rem;
-  }
-  .contrib-form{
-    max-width:420px;
-    margin:0 auto 56px;
-    text-align:left;
-  }
-  .contrib-list{
-    max-width:420px;
-    margin:0 auto;
-  }
-  .contrib-status{
-    color:#7a766e;
-    font-size:0.95rem;
-  }
-  .contrib-items{
-    list-style:none;
-    margin:0;
-    padding:0;
-    text-align:left;
-  }
-  .contrib-items li{
-    display:flex;
-    justify-content:space-between;
-    gap:16px;
-    padding:12px 0;
-    border-bottom:1px solid var(--hair);
-    font-size:0.98rem;
-  }
-  .contrib-items li:last-child{
-    border-bottom:none;
-  }
-  .contrib-name{
-    color:var(--ink);
-    font-weight:400;
-    flex-shrink:0;
-  }
-  .contrib-item{
-    color:#7a766e;
-    text-align:right;
-  }
+.schedule-note p{
+  margin:0 0 16px;
+}
 
-  /* ---- photo gallery ---- */
-  .gallery h2{
-    text-align:center;
-    font-size:2.1rem;
-    color:var(--rose);
-    margin-bottom:48px;
-  }
-  .gallery-grid{
-    display:grid;
-    grid-template-columns:1.1fr 1fr;
-    grid-template-rows:auto auto;
-    gap:16px;
-  }
-  .gallery-grid img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-  .gallery-grid .g-large{
-    grid-row:1 / 3;
-  }
-  .gallery-grid .g-large img{
-    aspect-ratio:2/3;
-  }
-  .gallery-grid .g-small img{
-    aspect-ratio:4/3;
-  }
-  @media (max-width: 560px){
-    .gallery-grid{
-      grid-template-columns:1fr;
-      grid-template-rows:auto;
-    }
-    .gallery-grid .g-large{grid-row:auto;}
-    .gallery-grid .g-large img{aspect-ratio:3/4;}
-  }
+.schedule-note p:last-child{
+  margin-bottom:0;
+}
 
-  /* ---- scroll reveal ---- */
-  .reveal{
-    opacity:0;
-    transform:translateY(28px);
-    transition:opacity 0.8s ease, transform 0.8s ease;
-  }
-  .reveal.visible{
-    opacity:1;
-    transform:translateY(0);
-  }
-  .reveal-stagger.visible .stagger-child{
-    opacity:1;
-    transform:translateY(0);
-  }
-  .stagger-child{
-    opacity:0;
-    transform:translateY(20px);
-    transition:opacity 0.6s ease, transform 0.6s ease;
-  }
-  .stagger-child:nth-child(1){transition-delay:0.05s;}
-  .stagger-child:nth-child(2){transition-delay:0.15s;}
-  .stagger-child:nth-child(3){transition-delay:0.25s;}
-  .stagger-child:nth-child(4){transition-delay:0.35s;}
-  .stagger-child:nth-child(5){transition-delay:0.45s;}
-  .stagger-child:nth-child(6){transition-delay:0.55s;}
-  @media (prefers-reduced-motion: reduce){
-    .reveal, .stagger-child{
-      opacity:1 !important;
-      transform:none !important;
-      transition:none !important;
-    }
-  }
 
-  /* ---- info ---- */
-  .info{
-    text-align:center;
-  }
-  .info h2{
-    font-size:2.1rem;
-    color:var(--rose);
-    margin-bottom:36px;
-  }
-  .info-block{
-    max-width:440px;
-    margin:0 auto 40px;
-  }
-  .info-block .eyebrow{margin-bottom:10px; display:block;}
-  .info-block p{margin:4px 0; font-size:0.98rem;}
+/* ---- RSVP ---- */
 
-  /* ---- footer ---- */
-  footer{
-    position:relative;
-    padding:80px 0 40px;
-    text-align:center;
-    overflow:hidden;
-  }
-  footer .foot-text{
-    position:relative;
-    z-index:1;
-    font-family:'Alex Brush', cursive;
-    color:var(--rose);
-    font-size:1.8rem;
-  }
+.rsvp{
+  text-align:center;
+}
 
-  /* ---- mobile optimization ---- */
-  @media (max-width: 600px){
-    .page{
-      padding:0 20px;
-    }
-    section{
-      padding:56px 0;
-    }
-    .hero{
-      padding-top:70px;
-    }
-    .hero-savetext{
-      font-size:1.7rem;
-    }
-    .hero h1{
-      font-size:2rem;
-      margin-bottom:22px;
-    }
-    .names{
-      font-size:2.4rem;
-    }
-    .names .and{
-      font-size:0.78rem;
-      letter-spacing:0.28em;
-      margin:4px 0;
-    }
-    .date{
-      font-size:0.82rem;
-      letter-spacing:0.14em;
-    }
-    .intro p{
-      font-size:0.98rem;
-    }
-    .intro .sign-off{
-      font-size:1.4rem;
-    }
-    .schedule h2,
-    .gallery h2,
-    .rsvp h2,
-    .info h2{
-      font-size:1.7rem;
-    }
-    .schedule-grid{
-      gap:32px 16px;
-    }
-    .schedule-item img{
-      height:52px;
-    }
-    .schedule-item .label{
-      font-size:0.78rem;
-    }
-    .gallery-grid{
-      gap:10px;
-    }
-    .form-wrap{
-      max-width:100%;
-    }
-    .radio-row{
-      flex-direction:column;
-      gap:14px;
-    }
-    .submit-btn{
-      width:100%;
-      padding:14px 0;
-    }
-    .info-block{
-      max-width:100%;
-    }
-    footer{
-      padding:56px 0 32px;
-    }
-    footer .foot-text{
-      font-size:1.4rem;
-    }
-  }
+.rsvp h2{
+  font-size:2.1rem;
+  color:var(--rose);
+}
 
-  @media (max-width: 380px){
-    .names{
-      font-size:2rem;
-    }
-    .hero h1{
-      font-size:1.7rem;
-    }
-  }
+.rsvp .deadline{
+  margin-top:10px;
+  font-size:0.9rem;
+  color:#7a766e;
+  letter-spacing:0.03em;
+}
 
-  /* ---- fixed side florals ---- */
+.form-wrap{
+  margin-top:44px;
+  position:relative;
+  z-index:1;
+  text-align:left;
+  max-width:440px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.field{
+  margin-bottom:30px;
+}
+
+.field label{
+  display:block;
+  text-transform:uppercase;
+  letter-spacing:0.18em;
+  font-size:0.72rem;
+  color:var(--rose);
+  margin-bottom:10px;
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field textarea{
+  width:100%;
+  border:none;
+  border-bottom:1px solid var(--hair);
+  background:transparent;
+  padding:8px 2px;
+  font-family:'Jost', sans-serif;
+  font-weight:300;
+  font-size:1rem;
+  color:var(--ink);
+  outline:none;
+}
+
+.field input:focus,
+.field textarea:focus{
+  border-bottom-color:var(--rose);
+}
+
+.field textarea{
+  resize:vertical;
+  min-height:70px;
+}
+
+.radio-row{
+  display:flex;
+  gap:28px;
+}
+
+.radio-option{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:0.98rem;
+  cursor:pointer;
+}
+
+.radio-option input{
+  accent-color:var(--rose);
+  width:16px;
+  height:16px;
+}
+
+.submit-btn{
+  display:block;
+  margin:44px auto 0;
+  padding:14px 42px;
+  background:transparent;
+  border:1px solid var(--rose);
+  color:var(--rose);
+  font-family:'Jost', sans-serif;
+  text-transform:uppercase;
+  letter-spacing:0.18em;
+  font-size:0.78rem;
+  cursor:pointer;
+}
+
+.submit-btn:hover{
+  background:var(--rose);
+  color:var(--cream);
+}
+
+.form-note{
+  text-align:center;
+  font-size:0.85rem;
+  color:#7a766e;
+  margin-top:18px;
+  display:none;
+}
+
+.form-note.visible{
+  display:block;
+}
+
+
+/* ---- contribution list ---- */
+
+.contrib{
+  text-align:center;
+}
+
+.contrib h2{
+  font-size:2.1rem;
+  color:var(--rose);
+  margin-bottom:20px;
+}
+
+.contrib-intro{
+  max-width:480px;
+  margin:0 auto 40px;
+  font-size:1rem;
+}
+
+.contrib-form{
+  max-width:420px;
+  margin:0 auto 56px;
+  text-align:left;
+}
+
+.contrib-list{
+  max-width:420px;
+  margin:0 auto;
+}
+
+.contrib-status{
+  color:#7a766e;
+  font-size:0.95rem;
+}
+
+.contrib-items{
+  list-style:none;
+  margin:0;
+  padding:0;
+  text-align:left;
+}
+
+.contrib-items li{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  padding:12px 0;
+  border-bottom:1px solid var(--hair);
+  font-size:0.98rem;
+}
+
+.contrib-name{
+  color:var(--ink);
+  font-weight:400;
+}
+
+.contrib-item{
+  color:#7a766e;
+  text-align:right;
+}
+
+
+/* ---- gallery ---- */
+
+.gallery h2{
+  text-align:center;
+  font-size:2.1rem;
+  color:var(--rose);
+  margin-bottom:48px;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  grid-template-rows:auto auto;
+  gap:16px;
+}
+
+.gallery-grid img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.gallery-grid .g-large{
+  grid-row:1 / 3;
+}
+
+.gallery-grid .g-large img{
+  aspect-ratio:2/3;
+}
+
+.gallery-grid .g-small img{
+  aspect-ratio:4/3;
+}
+
+
+/* ---- reveal ---- */
+
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.reveal-stagger.visible .stagger-child{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.stagger-child{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+
+
+/* ---- info ---- */
+
+.info{
+  text-align:center;
+}
+
+.info h2{
+  font-size:2.1rem;
+  color:var(--rose);
+  margin-bottom:36px;
+}
+
+.info-block{
+  max-width:440px;
+  margin:0 auto 40px;
+}
+
+.info-block .eyebrow{
+  margin-bottom:10px;
+  display:block;
+}
+
+.info-block p{
+  margin:4px 0;
+  font-size:0.98rem;
+}
+
+
+/* ---- footer ---- */
+
+footer{
+  position:relative;
+  padding:80px 0 40px;
+  text-align:center;
+}
+
+footer .foot-text{
+  font-family:'Alex Brush', cursive;
+  color:var(--rose);
+  font-size:1.8rem;
+}
+
+
+/* ---- florals ---- */
+
+.side-floral{
+  position:fixed;
+  bottom:0;
+  height:62vh;
+  max-height:640px;
+  width:auto;
+  opacity:0.4;
+  pointer-events:none;
+}
+
+.side-floral-left{
+  left:0;
+}
+
+.side-floral-right{
+  right:0;
+}
+
+.header-floral{
+  display:none;
+  pointer-events:none;
+}
+
+@media (max-width:900px){
   .side-floral{
-    position:fixed;
-    bottom:0;
-    height:62vh;
-    max-height:640px;
-    width:auto;
-    opacity:0.4;
-    pointer-events:none;
+    height:40vh;
+    opacity:0.3;
   }
-  .side-floral-left{
-    left:0;
-  }
-  .side-floral-right{
-    right:0;
-  }
-  @media (max-width:900px){
-    .side-floral{
-      height:40vh;
-      opacity:0.3;
-    }
-  }
-  .header-floral{
-    display:none;
-    pointer-events:none;
-  }
-  @media (max-width:600px){
-    .side-floral{
-      display:none;
-    }
-    .header-floral{
-      display:block;
-      position:absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:auto;
-      opacity:0.8;
-    }
+}
+
+
+/* ---- mobile ---- */
+
+@media (max-width:600px){
+
+  .page{
+    padding:0 20px;
   }
 
-  /* ---- intro opening card ---- */
-  body.intro-locked{
-    overflow:hidden;
-    height:100%;
+  section{
+    padding:56px 0;
   }
-  .intro-overlay{
-    position:fixed;
-    inset:0;
-    z-index:1000;
-    background-color:var(--cream);
-    transition:opacity 0.6s ease;
-    overflow:hidden;
+
+  .hero{
+    padding-top:70px;
   }
-  #intro-video{
+
+  .hero-savetext{
+    font-size:1.7rem;
+  }
+
+  .hero h1{
+    font-size:2rem;
+    margin-bottom:22px;
+  }
+
+  .names{
+    font-size:2.4rem;
+  }
+
+  .date{
+    font-size:0.82rem;
+  }
+
+  .countdown{
+    line-height:1.35;
+  }
+
+  .intro p{
+    font-size:0.98rem;
+  }
+
+  .schedule h2,
+  .gallery h2,
+  .rsvp h2,
+  .info h2,
+  .contrib h2{
+    font-size:1.7rem;
+  }
+
+  .schedule-grid{
+    gap:32px 16px;
+  }
+
+  .schedule-item img{
+    height:52px;
+  }
+
+  .radio-row{
+    flex-direction:column;
+    gap:14px;
+  }
+
+  .submit-btn{
     width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
   }
-  .intro-overlay.opening{
-    opacity:0;
-  }
-  .intro-overlay.opened{
+
+  .side-floral{
     display:none;
   }
-  @media (prefers-reduced-motion: reduce){
-    .intro-overlay{ transition:opacity 0.4s ease; }
+
+  .header-floral{
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:auto;
+    opacity:0.8;
   }
+}
+
+
+/* ---- intro opening ---- */
+
+body.intro-locked{
+  overflow:hidden;
+  height:100%;
+}
+
+.intro-overlay{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background-color:var(--cream);
+  transition:opacity 0.6s ease;
+  overflow:hidden;
+}
+
+#intro-video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.intro-overlay.opening{
+  opacity:0;
+}
+
+.intro-overlay.opened{
+  display:none;
+}
+
 </style>
 </head>
+
+
 <body class="intro-locked">
 
-<noscript><style>.intro-overlay{display:none !important;} body{overflow:auto !important;}</style></noscript>
+<noscript>
+<style>
+.intro-overlay{display:none !important;}
+body{overflow:auto !important;}
+</style>
+</noscript>
+
 
 <div class="intro-overlay" id="intro-overlay">
   <video id="intro-video" muted playsinline autoplay></video>
 </div>
 
 
-<img class="side-floral side-floral-left" src="floral-side-left.png" alt="" aria-hidden="true">
-<img class="side-floral side-floral-right" src="floral-side-right.png" alt="" aria-hidden="true">
-<img class="header-floral" src="header.png" alt="" aria-hidden="true">
+<img class="side-floral side-floral-left" src="floral-side-left.png" alt="">
+<img class="side-floral side-floral-right" src="floral-side-right.png" alt="">
+<img class="header-floral" src="header.png" alt="">
+
 
 <div class="page">
 
-  <nav class="site-nav" aria-label="Seitennavigation">
-    <a href="#ablauf">Ablauf</a>
-    <a href="#galerie">Galerie</a>
-    <a href="#rsvp">Zusage</a>
-    <a href="#mitbringen">Für den Sektempfang</a>
-    <a href="#infos">Gut zu wissen</a>
-  </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content reveal" id="hero-content">
-      <div class="hero-savetext script">Save the date</div>
-      <h1>Wir sagen Ja.</h1>
-      <div class="names">
-        <span class="script">Sophia</span>
-        <span class="and">und</span>
-        <span class="script">Lukas</span>
-      </div>
-      <div class="date">10 · JUNI · 2028</div>
-      <div class="countdown" id="countdown"></div>
+<nav class="site-nav">
+
+  <a href="#ablauf">Ablauf</a>
+
+  <a href="#galerie">Galerie</a>
+
+  <a href="#rsvp">Zusage</a>
+
+  <a href="#mitbringen">Für den Sektempfang</a>
+
+  <a href="#infos">Gut zu wissen</a>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content reveal" id="hero-content">
+
+    <div class="hero-savetext script">
+      Save the date
     </div>
-  </section>
 
-  <div class="divider"></div>
+    <h1>Wir sagen Ja.</h1>
 
-  <!-- INTRO -->
-  <section class="intro reveal">
-    <p>Gemeinsam lachen, gemeinsam wachsen, gemeinsam durchs Leben gehen.</p>
-    <p>Nach 11 gemeinsamen Jahren möchten wir uns am 10. Juni 2028 das Ja-Wort geben.</p>
-    <p>Und was könnte schöner sein, als diesen besonderen Tag mit all den Menschen zu verbringen, die uns am Herzen liegen?</p>
-    <p>Wir freuen uns von Herzen darauf, diesen Tag gemeinsam mit euch zu feiern.</p>
-    <div class="sign-off script">Sophia und Lukas</div>
-  </section>
+    <div class="names">
 
-  <div class="divider"></div>
+      <span class="script">
+        Sophia
+      </span>
 
-  <!-- SCHEDULE -->
-  <section class="schedule reveal-stagger" id="ablauf">
-    <h2>Unser großer Tag.</h2>
-    <div class="schedule-grid">
+      <span class="and">
+        und
+      </span>
 
-      <div class="schedule-item stagger-child">
-        <img src="icon-church.png" alt="Kirche">
-        <div class="time">12:00 Uhr</div>
-        <div class="label">Kirchliche Trauung</div>
-      </div>
-
-      <div class="schedule-item stagger-child">
-        <img src="icon-rings.png" alt="Ringe">
-        <div class="time">14:15 Uhr</div>
-        <div class="label">Ankunft Gärtnerei Elsäßer</div>
-      </div>
-
-      <div class="schedule-item stagger-child">
-        <img src="icon-coffee.png" alt="Kaffee und Kuchen">
-        <div class="time">14:30 Uhr</div>
-        <div class="label">Aperitif &amp; Sektempfang, anschließend Kaffee &amp; Anschnitt der Hochzeitstorte</div>
-      </div>
-
-      <div class="schedule-item stagger-child">
-        <img src="icon-camera.png" alt="Kamera">
-        <div class="time">16:00 Uhr</div>
-        <div class="label">Gemütliches Beisammensein sowie Fotoshooting</div>
-      </div>
-
-      <div class="schedule-item stagger-child">
-        <img src="icon-wine.png" alt="Weingläser">
-        <div class="time">18:30 Uhr</div>
-        <div class="label">Abendessen</div>
-      </div>
-
-      <div class="schedule-item stagger-child">
-        <img src="icon-sax.png" alt="Saxophon">
-        <div class="time">21:00 Uhr</div>
-        <div class="label">Hochzeitstanz</div>
-      </div>
+      <span class="script">
+        Lukas
+      </span>
 
     </div>
 
-    <div class="schedule-note">
-      <p>Um 12:00 Uhr beginnt unser großer Tag mit der kirchlichen Trauung und unserem Ja-Wort.</p>
-
-      <p>Anschließend geht es ganz entspannt weiter in Richtung Gärtnerei Elsäßer in Stuttgart-Vaihingen. Bis wir uns dort wiedersehen, bleibt noch ein bisschen Zeit – wer möchte, kann schon ins Hotel einchecken, sich kurz die Füße vertreten oder noch einen kleinen Powernap einlegen. 😉</p>
-
-      <p>Ab 14:30 Uhr starten wir dann gemeinsam in der Gärtnerei mit Aperitif, Sektempfang und ein paar Häppchen in den Nachmittag. Anschließend darf natürlich auch der Anschnitt unserer Hochzeitstorte mit Kaffee nicht fehlen.</p>
-
-      <p>Danach möchten wir vor allem eines: die Zeit mit euch genießen. Bei gemütlichem Beisammensein, guten Gesprächen und dem ein oder anderen Gläschen bleibt genügend Zeit, einfach gemeinsam den Nachmittag zu verbringen. Gegen 16:00 Uhr möchten wir außerdem die Gelegenheit nutzen, ein paar schöne Erinnerungen mit euch festzuhalten – bei einem gemeinsamen Fotoshooting mit unseren Gästen.</p>
-
-      <p>Ab 18:30 Uhr freuen wir uns auf das gemeinsame Abendessen, bevor wir um 21:00 Uhr mit unserem Hochzeitstanz die Tanzfläche eröffnen und hoffentlich bis tief in die Nacht mit euch feiern.</p>
-
-      <p>Die Uhrzeiten sollen dabei vor allem eine kleine Orientierung sein. Viel wichtiger ist uns ein entspannter, wunderschöner Tag mit unseren Lieblingsmenschen – und wenn nicht alles auf die Minute läuft, ist das für uns vollkommen in Ordnung.</p>
-
-      <p>Falls ihr uns mit einem kleinen Beitrag, Programmpunkt oder einer Überraschung eine Freude machen möchtet, stimmt euch dafür gerne mit unseren Trauzeugen ab.</p>
-
-      <p>Wir können es kaum erwarten, diesen besonderen Tag mit euch zu verbringen. 🤍</p>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- GALLERY -->
-  <section class="gallery reveal" id="galerie">
-    <h2>Ein paar Lieblingsmomente.</h2>
-    <div class="gallery-grid">
-      <div class="g-large">
-        <img src="couple-1.jpg" alt="Sophia und Lukas umarmen sich">
-      </div>
-      <div class="g-small">
-        <img src="ring.jpg" alt="Verlobungsring">
-      </div>
-      <div class="g-small">
-        <img src="couple-2.jpg" alt="Sophia und Lukas mit Blumenstrauß">
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- RSVP -->
-  <section class="rsvp reveal" id="rsvp">
-    <h2>Seid ihr dabei?</h2>
-    <div class="deadline">Wir würden uns riesig freuen, mit euch zu feiern. Gebt uns bitte bis zum <b>28. Februar 2028</b> Bescheid, ob ihr dabei seid.</div>
-
-    <div class="form-wrap">
-      <form id="rsvp-form"
-            action="https://script.google.com/macros/s/AKfycby4cE_0g4kZdMHAwXAvxxXwsYLuCmmxeodfKr1IIxWeQy-vNZXIphM1ZKJvD-wVn9ZREw/exec"
-            method="POST"
-            target="hidden-response-frame">
-
-        <div class="field">
-          <label for="name">Euer Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-
-        <div class="field">
-          <label>Kommt ihr?</label>
-          <div class="radio-row">
-            <label class="radio-option">
-              <input type="radio" name="attending" value="Ja" required> Ja, wir kommen gerne!
-            </label>
-            <label class="radio-option">
-              <input type="radio" name="attending" value="Nein"> Leider nein
-            </label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="guests">Anzahl Personen</label>
-          <input type="number" id="guests" name="guests" min="1" value="1">
-        </div>
-
-        <div class="field">
-          <label for="diet">Allergien</label>
-          <input type="text" id="diet" name="diet" placeholder="z. B. Nussallergie, Laktose, Zöliakie etc.">
-        </div>
-
-        <div class="field">
-          <label for="message">Nachricht an das Brautpaar</label>
-          <textarea id="message" name="message"></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn">Antwort senden</button>
-        <p class="form-note" id="form-note">Danke euch — eure Antwort ist angekommen! 💛</p>
-      </form>
-
-      <iframe name="hidden-response-frame" style="display:none;"></iframe>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- MITBRINGLISTE -->
-  <section class="contrib reveal" id="mitbringen">
-    <h2>Ein Stück von euch für unseren Sektempfang</h2>
-
-    <p class="contrib-intro">
-      Jeder hat doch dieses eine Lieblingsrezept, das immer wieder gerne gebacken,
-      zubereitet oder zu Feiern mitgebracht wird.
-      <br><br>
-      Wer möchte, darf sehr gerne eine kleine Leckerei zu unserem Sektempfang
-      beisteuern – ob süß, herzhaft oder eine ganz eigene Spezialität.
-      Wir würden uns riesig freuen, wenn so ein paar eurer Lieblingsrezepte
-      Teil unseres gemeinsamen Nachmittags werden. 🤍
-      <br><br>
-      Damit wir ein bisschen den Überblick behalten, tragt euch mit eurer
-      Leckerei einfach unten in die Liste ein.
-      Und ganz wichtig: Fühlt euch bitte zu nichts verpflichtet –
-      wer Lust hat, etwas beizusteuern, macht uns damit einfach eine große Freude.
-    </p>
-
-    <form id="contrib-form" class="contrib-form">
-      <div class="field">
-        <label for="contrib-name">Euer Name</label>
-        <input type="text" id="contrib-name" name="name" required>
-      </div>
-      <div class="field">
-        <label for="contrib-item">Das möchten wir mitbringen</label>
-        <input type="text" id="contrib-item" name="snack" placeholder="z. B. ein Blech Muffins" required>
-      </div>
-      <button type="submit" class="submit-btn">Eintragen</button>
-      <p class="form-note" id="contrib-form-note">Wie schön – vielen lieben Dank! 🤍</p>
-    </form>
-
-    <div class="contrib-list" id="contrib-list">
-      <p class="contrib-status">Liste wird geladen …</p>
-    </div>
-  </section>
-
-  <script>
-    (function(){
-      var form = document.getElementById('contrib-form');
-      var note = document.getElementById('contrib-form-note');
-      if(!form) return;
-
-      // Gleiche Web-App-URL wie beim RSVP-Formular oben.
-      var SCRIPT_URL = document.getElementById('rsvp-form').action;
-
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        var data = new FormData(form);
-        data.append('formType', 'contribution');
-        fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: data })
-          .then(function(){
-            note.classList.add('visible');
-            form.reset();
-            loadContribList();
-          })
-          .catch(function(){
-            note.textContent = 'Hat leider nicht geklappt, bitte nochmal versuchen.';
-            note.classList.add('visible');
-          });
-      });
-    })();
-  </script>
-
-  <script>
-    function loadContribList(){
-      var list = document.getElementById('contrib-list');
-      if(!list) return;
-
-      // WICHTIG: Hier die "Veröffentlichen"-CSV-URL des Tabs "Mitbringliste (öffentlich)" eintragen.
-      // Anleitung: siehe google-apps-script/README.md
-      var CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTudb4uCsvLlclwuyywD_85zevSd0_6-waInc7agbXmeEFX5AXMFg24g_OyUennPabvhMdF5bEF0rWp/pub?gid=1451647276&single=true&output=csv';
-
-      function parseCSVLine(line){
-        var result = [];
-        var cur = '';
-        var inQuotes = false;
-        for(var i=0; i<line.length; i++){
-          var c = line[i];
-          if(inQuotes){
-            if(c === '"'){
-              if(line[i+1] === '"'){ cur += '"'; i++; }
-              else { inQuotes = false; }
-            } else { cur += c; }
-          } else {
-            if(c === '"'){ inQuotes = true; }
-            else if(c === ','){ result.push(cur); cur = ''; }
-            else { cur += c; }
-          }
-        }
-        result.push(cur);
-        return result;
-      }
-
-      if(CSV_URL.indexOf('YOUR_PUBLISHED_CSV_URL_HERE') !== -1){
-        list.innerHTML = '<p class="contrib-status">Liste noch nicht verbunden.</p>';
-        return;
-      }
-
-      fetch(CSV_URL)
-        .then(function(res){ return res.text(); })
-        .then(function(text){
-          var lines = text.split(/\r?\n/).filter(function(l){ return l.trim() !== ''; });
-          lines.shift(); // header row (Name, Beitrag)
-          if(lines.length === 0){
-            list.innerHTML = '<p class="contrib-status">Noch niemand eingetragen — seid die Ersten!</p>';
-            return;
-          }
-          var html = '<ul class="contrib-items">';
-          lines.forEach(function(line){
-            var cols = parseCSVLine(line);
-            var name = (cols[0] || '').trim();
-            var item = (cols[1] || '').trim();
-            if(name || item){
-              html += '<li><span class="contrib-name">' + escapeHtml(name) + '</span><span class="contrib-item">' + escapeHtml(item) + '</span></li>';
-            }
-          });
-          html += '</ul>';
-          list.innerHTML = html;
-        })
-        .catch(function(){
-          list.innerHTML = '<p class="contrib-status">Liste konnte gerade nicht geladen werden.</p>';
-        });
-
-      function escapeHtml(str){
-        var div = document.createElement('div');
-        div.textContent = str;
-        return div.innerHTML;
-      }
-    }
-    loadContribList();
-  </script>
-
-  <div class="divider"></div>
-
-  <script>
-    (function(){
-      var els = [document.getElementById('countdown')].filter(Boolean);
-      if(els.length === 0) return;
-      var weddingDate = new Date(2028, 5, 10); // 10. Juni 2028
-      function update(){
-        var now = new Date();
-        var startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-        var msPerDay = 1000 * 60 * 60 * 24;
-        var diffDays = Math.round((weddingDate - startOfToday) / msPerDay);
-        var text;
-        if(diffDays > 1){
-          text = 'Noch ' + diffDays + ' Mal schlafen <br> bis zu unserem großen Tag';
-        } else if(diffDays === 1){
-          text = 'Noch 1 Mal schlafen bis zu unserem großen Tag';
-        } else if(diffDays === 0){
-          text = 'Heute ist unser großer Tag!';
-        } else {
-          text = 'Wir haben geheiratet!';
-        }
-        els.forEach(function(el){ el.textContent = text; });
-      }
-      update();
-      setInterval(update, 60 * 60 * 1000); // refresh hourly in case the tab stays open
-    })();
-  </script>
-
-  <script>
-    (function(){
-      var hero = document.getElementById('hero-content');
-      if(hero){ setTimeout(function(){ hero.classList.add('visible'); }, 150); }
-
-      var revealEls = document.querySelectorAll('.reveal:not(#hero-content), .reveal-stagger');
-      if(!('IntersectionObserver' in window) || revealEls.length === 0){
-        revealEls.forEach(function(el){ el.classList.add('visible'); });
-        return;
-      }
-      var observer = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          if(entry.isIntersecting){
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
-      revealEls.forEach(function(el){ observer.observe(el); });
-    })();
-  </script>
-
-  <script>
-    (function(){
-      var form = document.getElementById('rsvp-form');
-      var note = document.getElementById('form-note');
-      var frame = document.querySelector('iframe[name="hidden-response-frame"]');
-      var submitted = false;
-      form.addEventListener('submit', function(){ submitted = true; });
-      frame.addEventListener('load', function(){
-        if(submitted){
-          note.classList.add('visible');
-          form.reset();
-        }
-      });
-    })();
-  </script>
-
-  <div class="divider"></div>
-
-  <!-- INFO -->
-  <section class="info" id="infos">
-    <h2>Gut zu wissen.</h2>
-
-    <div class="info-block">
-      <span class="eyebrow">Unsere Trauung</span>
-      <p>Name der Kirche</p>
-      <p>Straße Hausnummer, PLZ Ort</p>
-      <p>Parkmöglichkeiten findet ihr ganz in der Nähe der Kirche.</p>
+    <div class="date">
+      10 · JUNI · 2028
     </div>
 
-    <div class="info-block">
-      <span class="eyebrow">Hier feiern wir</span>
-      <p>Gärtnerei Elsäßer</p>
-      <p><a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x4799dc384d273c0b:0xf9052f973c60d007?sa=X&amp;ved=1t:8290&amp;ictx=111" target="_blank" rel="noopener">Katzenbachstraße 207, 70563 Stuttgart-Vaihingen</a></p>
-    </div>
+    <div class="countdown" id="countdown"></div>
 
-    <div class="info-block">
-      <span class="eyebrow">Für eine entspannte Nacht</span>
-      <p>Wer nach einer langen Partynacht nicht mehr nach Hause fahren möchte, findet ganz in der Nähe verschiedene Übernachtungsmöglichkeiten.</p>
-      <p><a href="https://www.relexa-hotel-stuttgart.de/" target="_blank" rel="noopener">Relexa Waldhotel</a></p>
-      <p><a href="https://all.accor.com/hotel/A6Q4/index.de.shtml" target="_blank" rel="noopener">Ibis Styles Vaihingen</a></p>
-    </div>
+  </div>
 
-    <div class="info-block">
-      <span class="eyebrow">Dresscode</span>
-      <p>Sommerlich schick – und vor allem so, dass ihr euch wohlfühlt.</p>
-      <p>Über sommerliche Farben und Pastelltöne freuen wir uns besonders. Weiß sowie sehr helle Creme- und Beigetöne möchten wir gerne der Braut überlassen.</p>
-    </div>
+</section>
 
-    <div class="info-block">
-      <span class="eyebrow">Wenn ihr uns etwas schenken möchtet</span>
-      <p>Das schönste Geschenk für uns ist, diesen besonderen Tag gemeinsam mit euch verbringen zu dürfen.</p>
-      <p>Wer uns darüber hinaus eine Freude machen möchte, darf gerne etwas zu unserer Flitterwochenkasse beitragen und damit ein kleines Stück unserer gemeinsamen Reise schenken.</p>
-    </div>
 
-    <div class="info-block">
-      <span class="eyebrow">Unsere Trauzeugen</span>
-      <p>Ihr habt noch eine Frage, möchtet etwas planen oder uns mit einer kleinen Überraschung überraschen?</p>
-      <p>Dann sind unsere Trauzeugen Adi und Jonas gerne für euch da.</p>
-      <p>Adi: 0XX XXXXXXX · Jonas: 0XX XXXXXXX</p>
-    </div>
-  </section>
+<div class="divider"></div>
 
-  <footer>
-    <div class="foot-text">Wir können es kaum erwarten.<br>Sophia &amp; Lukas</div>
-  </footer>
+
+
+<!-- INTRO -->
+
+<section class="intro reveal">
+
+  <p>
+    Gemeinsam lachen, gemeinsam wachsen, gemeinsam durchs Leben gehen.
+  </p>
+
+  <p>
+    Nach 11 gemeinsamen Jahren möchten wir uns am 10. Juni 2028 das Ja-Wort geben.
+  </p>
+
+  <p>
+    Und was könnte schöner sein, als diesen besonderen Tag mit all den Menschen zu verbringen,
+    die uns am Herzen liegen?
+  </p>
+
+  <p>
+    Wir freuen uns von Herzen darauf, diesen Tag gemeinsam mit euch zu feiern.
+  </p>
+
+  <div class="sign-off script">
+    Sophia und Lukas
+  </div>
+
+</section>
+
+
+<div class="divider"></div>
+
+
+
+<!-- ABLAUF -->
+
+<section class="schedule reveal-stagger" id="ablauf">
+
+<h2>Unser großer Tag.</h2>
+
+
+<div class="schedule-grid">
+
+
+<div class="schedule-item stagger-child">
+
+  <img src="icon-church.png" alt="Kirche">
+
+  <div class="time">
+    12:00 Uhr
+  </div>
+
+  <div class="label">
+    Kirchliche Trauung
+  </div>
 
 </div>
 
-  <script>
-    (function(){
-      var overlay = document.getElementById('intro-overlay');
-      var video = document.getElementById('intro-video');
-      if(!overlay || !video) return;
 
-      var isMobile = window.matchMedia('(max-width: 600px)').matches;
-      video.muted = true;
-      var triedFallback = false;
-      video.src = isMobile ? 'intro-mobile.mp4' : 'intro-desktop.mp4';
+
+<div class="schedule-item stagger-child">
+
+  <img src="icon-rings.png" alt="Ringe">
+
+  <div class="time">
+    14:15 Uhr
+  </div>
+
+  <div class="label">
+    Ankunft Gärtnerei Elsäßer
+  </div>
+
+</div>
+
+
+
+<div class="schedule-item stagger-child">
+
+  <img src="icon-coffee.png" alt="Sektempfang">
+
+  <div class="time">
+    14:30 Uhr
+  </div>
+
+  <div class="label">
+    Aperitif & Sektempfang, anschließend Kaffee & Anschnitt der Hochzeitstorte
+  </div>
+
+</div>
+
+
+
+<div class="schedule-item stagger-child">
+
+  <img src="icon-camera.png" alt="Fotos">
+
+  <div class="time">
+    16:00 Uhr
+  </div>
+
+  <div class="label">
+    Gemütliches Beisammensein & Fotoshooting
+  </div>
+
+</div>
+
+
+
+<div class="schedule-item stagger-child">
+
+  <img src="icon-wine.png" alt="Abendessen">
+
+  <div class="time">
+    18:30 Uhr
+  </div>
+
+  <div class="label">
+    Abendessen
+  </div>
+
+</div>
+
+
+
+<div class="schedule-item stagger-child">
+
+  <img src="icon-sax.png" alt="Hochzeitstanz">
+
+  <div class="time">
+    21:00 Uhr
+  </div>
+
+  <div class="label">
+    Hochzeitstanz
+  </div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="schedule-note">
+
+  <p>
+    Um 12:00 Uhr beginnt unser großer Tag mit der kirchlichen Trauung und unserem Ja-Wort.
+  </p>
+
+  <p>
+    Anschließend geht es ganz entspannt weiter in Richtung Gärtnerei Elsäßer in Stuttgart-Vaihingen.
+    Bis wir uns dort wiedersehen, bleibt noch ein bisschen Zeit – wer möchte, kann schon ins Hotel
+    einchecken, sich kurz die Füße vertreten oder noch einen kleinen Powernap einlegen. 😉
+  </p>
+
+  <p>
+    Ab 14:30 Uhr starten wir dann gemeinsam in der Gärtnerei mit Aperitif, Sektempfang und ein paar
+    Häppchen in den Nachmittag. Anschließend darf natürlich auch der Anschnitt unserer Hochzeitstorte
+    mit Kaffee nicht fehlen.
+  </p>
+
+  <p>
+    Danach möchten wir vor allem eines: die Zeit mit euch genießen.
+    Bei gemütlichem Beisammensein, guten Gesprächen und dem ein oder anderen Gläschen bleibt
+    genügend Zeit, einfach gemeinsam den Nachmittag zu verbringen.
+    Gegen 16:00 Uhr möchten wir außerdem die Gelegenheit nutzen, ein paar schöne Erinnerungen
+    mit euch festzuhalten – bei einem gemeinsamen Fotoshooting mit unseren Gästen.
+  </p>
+
+  <p>
+    Ab 18:30 Uhr freuen wir uns auf das gemeinsame Abendessen, bevor wir um 21:00 Uhr
+    mit unserem Hochzeitstanz die Tanzfläche eröffnen und hoffentlich bis tief in die Nacht
+    mit euch feiern.
+  </p>
+
+  <p>
+    Die Uhrzeiten sollen dabei vor allem eine kleine Orientierung sein.
+    Viel wichtiger ist uns ein entspannter, wunderschöner Tag mit unseren Lieblingsmenschen –
+    und wenn nicht alles auf die Minute läuft, ist das für uns vollkommen in Ordnung.
+  </p>
+
+  <p>
+    Falls ihr uns mit einem kleinen Beitrag, Programmpunkt oder einer Überraschung
+    eine Freude machen möchtet, stimmt euch dafür gerne mit unseren Trauzeugen ab.
+  </p>
+
+  <p>
+    Wir können es kaum erwarten, diesen besonderen Tag mit euch zu verbringen. 🤍
+  </p>
+
+</div>
+
+</section>
+
+
+<div class="divider"></div>
+
+
+
+<!-- GALERIE -->
+
+<section class="gallery reveal" id="galerie">
+
+<h2>Ein paar Lieblingsmomente.</h2>
+
+<div class="gallery-grid">
+
+  <div class="g-large">
+    <img src="couple-1.jpg" alt="Sophia und Lukas">
+  </div>
+
+  <div class="g-small">
+    <img src="ring.jpg" alt="Verlobungsring">
+  </div>
+
+  <div class="g-small">
+    <img src="couple-2.jpg" alt="Sophia und Lukas">
+  </div>
+
+</div>
+
+</section>
+
+
+<div class="divider"></div>
+
+
+
+<!-- RSVP -->
+
+<section class="rsvp reveal" id="rsvp">
+
+<h2>Seid ihr dabei?</h2>
+
+<div class="deadline">
+  Wir würden uns riesig freuen, mit euch zu feiern.
+  Gebt uns bitte bis zum <b>28. Februar 2028</b> Bescheid, ob ihr dabei seid.
+</div>
+
+
+<div class="form-wrap">
+
+<form
+id="rsvp-form"
+action="https://script.google.com/macros/s/AKfycby4cE_0g4kZdMHAwXAvxxXwsYLuCmmxeodfKr1IIxWeQy-vNZXIphM1ZKJvD-wVn9ZREw/exec"
+method="POST"
+target="hidden-response-frame"
+>
+
+
+<div class="field">
+
+<label for="name">
+Euer Name
+</label>
+
+<input
+type="text"
+id="name"
+name="name"
+required
+>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+Kommt ihr?
+</label>
+
+<div class="radio-row">
+
+<label class="radio-option">
+
+<input
+type="radio"
+name="attending"
+value="Ja"
+required
+>
+
+Ja, wir kommen gerne!
+
+</label>
+
+
+<label class="radio-option">
+
+<input
+type="radio"
+name="attending"
+value="Nein"
+>
+
+Leider nein
+
+</label>
+
+</div>
+
+</div>
+
+
+
+<div class="field">
+
+<label for="guests">
+Anzahl Personen
+</label>
+
+<input
+type="number"
+id="guests"
+name="guests"
+min="1"
+value="1"
+>
+
+</div>
+
+
+
+<div class="field">
+
+<label for="diet">
+Allergien
+</label>
+
+<input
+type="text"
+id="diet"
+name="diet"
+placeholder="z. B. Nussallergie, Laktose, Zöliakie etc."
+>
+
+</div>
+
+
+
+<div class="field">
+
+<label for="message">
+Nachricht an das Brautpaar
+</label>
+
+<textarea
+id="message"
+name="message"
+></textarea>
+
+</div>
+
+
+
+<button
+type="submit"
+class="submit-btn"
+>
+
+Antwort senden
+
+</button>
+
+
+<p
+class="form-note"
+id="form-note"
+>
+
+Danke euch — eure Antwort ist angekommen! 🤍
+
+</p>
+
+
+</form>
+
+
+<iframe
+name="hidden-response-frame"
+style="display:none;"
+></iframe>
+
+
+</div>
+
+</section>
+
+
+<div class="divider"></div>
+
+
+
+<!-- SEKTempfang / MITBRINGLISTE -->
+
+<section class="contrib reveal" id="mitbringen">
+
+<h2>
+Ein Stück von euch für unseren Sektempfang
+</h2>
+
+
+<p class="contrib-intro">
+
+  Jeder hat doch dieses eine Lieblingsrezept, das immer wieder gerne gebacken,
+  zubereitet oder zu Feiern mitgebracht wird.
+
+  <br><br>
+
+  Wer möchte, darf sehr gerne eine kleine Leckerei zu unserem Sektempfang
+  beisteuern – ob süß, herzhaft oder eine ganz eigene Spezialität.
+  Wir würden uns riesig freuen, wenn so ein paar eurer Lieblingsrezepte
+  Teil unseres gemeinsamen Nachmittags werden. 🤍
+
+  <br><br>
+
+  Damit wir ein bisschen den Überblick behalten, tragt euch mit eurer
+  Leckerei einfach unten in die Liste ein.
+
+  <br><br>
+
+  Und ganz wichtig: Fühlt euch bitte zu nichts verpflichtet –
+  wer Lust hat, etwas beizusteuern, macht uns damit einfach eine große Freude.
+
+</p>
+
+
+
+<form
+id="contrib-form"
+class="contrib-form"
+>
+
+
+<div class="field">
+
+<label for="contrib-name">
+Euer Name
+</label>
+
+<input
+type="text"
+id="contrib-name"
+name="name"
+required
+>
+
+</div>
+
+
+
+<div class="field">
+
+<label for="contrib-item">
+Das möchten wir mitbringen
+</label>
+
+<input
+type="text"
+id="contrib-item"
+name="snack"
+placeholder="z. B. ein Blech Muffins"
+required
+>
+
+</div>
+
+
+
+<button
+type="submit"
+class="submit-btn"
+>
+
+Eintragen
+
+</button>
+
+
+<p
+class="form-note"
+id="contrib-form-note"
+>
+
+Wie schön – vielen lieben Dank! 🤍
+
+</p>
+
+
+</form>
+
+
+
+<div
+class="contrib-list"
+id="contrib-list"
+>
+
+<p class="contrib-status">
+Liste wird geladen …
+</p>
+
+</div>
+
+
+</section>
+
+
+
+<!-- MITBRINGLISTE SCRIPT -->
+
+<script>
+
+(function(){
+
+  var form =
+  document.getElementById('contrib-form');
+
+  var note =
+  document.getElementById('contrib-form-note');
+
+  if(!form) return;
+
+
+  var SCRIPT_URL =
+  document.getElementById('rsvp-form').action;
+
+
+  form.addEventListener(
+  'submit',
+  function(e){
+
+    e.preventDefault();
+
+    var data =
+    new FormData(form);
+
+    data.append(
+    'formType',
+    'contribution'
+    );
+
+
+    fetch(
+    SCRIPT_URL,
+    {
+      method:'POST',
+      mode:'no-cors',
+      body:data
+    }
+    )
+
+    .then(function(){
+
+      note.classList.add('visible');
+
+      form.reset();
+
+      loadContribList();
+
+    })
+
+    .catch(function(){
+
+      note.textContent =
+      'Hat leider nicht geklappt, bitte nochmal versuchen.';
+
+      note.classList.add('visible');
+
+    });
+
+  });
+
+})();
+
+</script>
+
+
+
+<script>
+
+function loadContribList(){
+
+  var list =
+  document.getElementById('contrib-list');
+
+  if(!list) return;
+
+
+  var CSV_URL =
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTudb4uCsvLlclwuyywD_85zevSd0_6-waInc7agbXmeEFX5AXMFg24g_OyUennPabvhMdF5bEF0rWp/pub?gid=1451647276&single=true&output=csv';
+
+
+  function parseCSVLine(line){
+
+    var result=[];
+    var cur='';
+    var inQuotes=false;
+
+
+    for(
+    var i=0;
+    i<line.length;
+    i++
+    ){
+
+      var c=line[i];
+
+
+      if(inQuotes){
+
+        if(c === '"'){
+
+          if(line[i+1] === '"'){
+
+            cur+='"';
+
+            i++;
+
+          }
+
+          else{
+
+            inQuotes=false;
+
+          }
+
+        }
+
+        else{
+
+          cur+=c;
+
+        }
+
+      }
+
+      else{
+
+        if(c === '"'){
+
+          inQuotes=true;
+
+        }
+
+        else if(c === ','){
+
+          result.push(cur);
+
+          cur='';
+
+        }
+
+        else{
+
+          cur+=c;
+
+        }
+
+      }
+
+    }
+
+
+    result.push(cur);
+
+    return result;
+
+  }
+
+
+
+  fetch(CSV_URL)
+
+  .then(function(res){
+
+    return res.text();
+
+  })
+
+  .then(function(text){
+
+    var lines =
+    text
+    .split(/\r?\n/)
+    .filter(function(l){
+
+      return l.trim() !== '';
+
+    });
+
+
+    lines.shift();
+
+
+    if(lines.length === 0){
+
+      list.innerHTML =
+      '<p class="contrib-status">Noch niemand eingetragen — seid die Ersten!</p>';
+
+      return;
+
+    }
+
+
+    var html =
+    '<ul class="contrib-items">';
+
+
+    lines.forEach(function(line){
+
+      var cols =
+      parseCSVLine(line);
+
+      var name =
+      (cols[0] || '').trim();
+
+      var item =
+      (cols[1] || '').trim();
+
+
+      if(name || item){
+
+        html +=
+        '<li>' +
+        '<span class="contrib-name">' +
+        escapeHtml(name) +
+        '</span>' +
+        '<span class="contrib-item">' +
+        escapeHtml(item) +
+        '</span>' +
+        '</li>';
+
+      }
+
+    });
+
+
+    html += '</ul>';
+
+    list.innerHTML = html;
+
+  })
+
+  .catch(function(){
+
+    list.innerHTML =
+    '<p class="contrib-status">Liste konnte gerade nicht geladen werden.</p>';
+
+  });
+
+
+
+  function escapeHtml(str){
+
+    var div =
+    document.createElement('div');
+
+    div.textContent=str;
+
+    return div.innerHTML;
+
+  }
+
+}
+
+
+loadContribList();
+
+</script>
+
+
+
+<div class="divider"></div>
+
+
+
+<!-- COUNTDOWN -->
+
+<script>
+
+(function(){
+
+  var els =
+  [document.getElementById('countdown')]
+  .filter(Boolean);
+
+
+  if(els.length === 0)
+  return;
+
+
+  var weddingDate =
+  new Date(2028,5,10);
+
+
+  function update(){
+
+    var now =
+    new Date();
+
+
+    var startOfToday =
+    new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate()
+    );
+
+
+    var msPerDay =
+    1000 * 60 * 60 * 24;
+
+
+    var diffDays =
+    Math.round(
+      (weddingDate - startOfToday)
+      /
+      msPerDay
+    );
+
+
+    var text;
+
+
+    if(diffDays > 1){
+
+      text =
+      'Noch ' +
+      diffDays +
+      ' Mal schlafen' +
+      '<span class="mobile-break"></span>' +
+      ' bis zu unserem großen Tag';
+
+    }
+
+    else if(diffDays === 1){
+
+      text =
+      'Noch 1 Mal schlafen' +
+      '<span class="mobile-break"></span>' +
+      ' bis zu unserem großen Tag';
+
+    }
+
+    else if(diffDays === 0){
+
+      text =
+      'Heute ist unser großer Tag!';
+
+    }
+
+    else{
+
+      text =
+      'Wir haben geheiratet!';
+
+    }
+
+
+    els.forEach(function(el){
+
+      el.innerHTML = text;
+
+    });
+
+  }
+
+
+  update();
+
+
+  setInterval(
+    update,
+    60 * 60 * 1000
+  );
+
+})();
+
+</script>
+
+
+
+<!-- SCROLL ANIMATION -->
+
+<script>
+
+(function(){
+
+  var hero =
+  document.getElementById('hero-content');
+
+
+  if(hero){
+
+    setTimeout(function(){
+
+      hero.classList.add('visible');
+
+    },150);
+
+  }
+
+
+  var revealEls =
+  document.querySelectorAll(
+    '.reveal:not(#hero-content), .reveal-stagger'
+  );
+
+
+  if(!('IntersectionObserver' in window)){
+
+    revealEls.forEach(function(el){
+
+      el.classList.add('visible');
+
+    });
+
+    return;
+
+  }
+
+
+  var observer =
+  new IntersectionObserver(
+  function(entries){
+
+    entries.forEach(function(entry){
+
+      if(entry.isIntersecting){
+
+        entry.target.classList.add('visible');
+
+        observer.unobserve(entry.target);
+
+      }
+
+    });
+
+  },
+  {
+    threshold:0.15
+  }
+  );
+
+
+  revealEls.forEach(function(el){
+
+    observer.observe(el);
+
+  });
+
+})();
+
+</script>
+
+
+
+<!-- RSVP -->
+
+<script>
+
+(function(){
+
+  var form =
+  document.getElementById('rsvp-form');
+
+  var note =
+  document.getElementById('form-note');
+
+  var frame =
+  document.querySelector(
+    'iframe[name="hidden-response-frame"]'
+  );
+
+  var submitted=false;
+
+
+  form.addEventListener(
+  'submit',
+  function(){
+
+    submitted=true;
+
+  });
+
+
+  frame.addEventListener(
+  'load',
+  function(){
+
+    if(submitted){
+
+      note.classList.add('visible');
+
+      form.reset();
+
+    }
+
+  });
+
+})();
+
+</script>
+
+
+
+<div class="divider"></div>
+
+
+
+<!-- INFOS -->
+
+<section class="info" id="infos">
+
+<h2>
+Gut zu wissen.
+</h2>
+
+
+
+<div class="info-block">
+
+<span class="eyebrow">
+Unsere Trauung
+</span>
+
+<p>
+Name der Kirche
+</p>
+
+<p>
+Straße Hausnummer, PLZ Ort
+</p>
+
+<p>
+Parkmöglichkeiten findet ihr ganz in der Nähe der Kirche.
+</p>
+
+</div>
+
+
+
+<div class="info-block">
+
+<span class="eyebrow">
+Hier feiern wir
+</span>
+
+<p>
+Gärtnerei Elsäßer
+</p>
+
+<p>
+
+<a
+href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x4799dc384d273c0b:0xf9052f973c60d007?sa=X&amp;ved=1t:8290&amp;ictx=111"
+target="_blank"
+rel="noopener"
+>
+
+Katzenbachstraße 207,
+70563 Stuttgart-Vaihingen
+
+</a>
+
+</p>
+
+<p>
+Nach der Trauung freuen wir uns darauf,
+hier gemeinsam mit euch weiterzufeiern.
+</p>
+
+</div>
+
+
+
+<div class="info-block">
+
+<span class="eyebrow">
+Für eine entspannte Nacht
+</span>
+
+<p>
+Wer nach einer langen Partynacht nicht mehr nach Hause fahren möchte,
+findet ganz in der Nähe verschiedene Übernachtungsmöglichkeiten.
+</p>
+
+<p>
+
+<a
+href="https://www.relexa-hotel-stuttgart.de/"
+target="_blank"
+rel="noopener"
+>
+
+Relexa Waldhotel
+
+</a>
+
+</p>
+
+<p>
+
+<a
+href="https://all.accor.com/hotel/A6Q4/index.de.shtml"
+target="_blank"
+rel="noopener"
+>
+
+Ibis Styles Vaihingen
+
+</a>
+
+</p>
+
+</div>
+
+
+
+<div class="info-block">
+
+<span class="eyebrow">
+Dresscode
+</span>
+
+<p>
+Sommerlich schick – und vor allem so,
+dass ihr euch wohlfühlt.
+</p>
+
+<p>
+Über sommerliche Farben und Pastelltöne freuen wir uns besonders.
+Weiß sowie sehr helle Creme- und Beigetöne möchten wir gerne der Braut überlassen.
+</p>
+
+</div>
+
+
+
+<div class="info-block">
+
+<span class="eyebrow">
+Wenn ihr uns etwas schenken möchtet
+</span>
+
+<p>
+Das schönste Geschenk für uns ist,
+diesen besonderen Tag gemeinsam mit euch verbringen zu dürfen.
+</p>
+
+<p>
+Wer uns darüber hinaus eine Freude machen möchte,
+darf gerne etwas zu unserer Flitterwochenkasse beitragen
+und damit ein kleines Stück unserer gemeinsamen Reise schenken.
+</p>
+
+</div>
+
+
+
+<div class="info-block">
+
+<span class="eyebrow">
+Unsere Trauzeugen
+</span>
+
+<p>
+Ihr habt noch eine Frage,
+möchtet etwas planen oder uns mit einer kleinen Überraschung überraschen?
+</p>
+
+<p>
+Dann sind unsere Trauzeugen Adi und Jonas gerne für euch da.
+</p>
+
+<p>
+Adi: 0XX XXXXXXX · Jonas: 0XX XXXXXXX
+</p>
+
+</div>
+
+
+</section>
+
+
+
+<footer>
+
+<div class="foot-text">
+
+Wir können es kaum erwarten.
+
+<br>
+
+Sophia & Lukas
+
+</div>
+
+</footer>
+
+
+</div>
+
+
+
+<!-- INTRO VIDEO -->
+
+<script>
+
+(function(){
+
+  var overlay =
+  document.getElementById('intro-overlay');
+
+  var video =
+  document.getElementById('intro-video');
+
+
+  if(!overlay || !video)
+  return;
+
+
+  var isMobile =
+  window.matchMedia(
+    '(max-width: 600px)'
+  ).matches;
+
+
+  video.muted=true;
+
+
+  var triedFallback=false;
+
+
+  video.src =
+  isMobile
+  ?
+  'intro-mobile.mp4'
+  :
+  'intro-desktop.mp4';
+
+
+  video.load();
+
+
+  var opened=false;
+
+
+  function openIntro(){
+
+    if(opened)
+    return;
+
+
+    opened=true;
+
+
+    overlay.classList.add(
+      'opening'
+    );
+
+
+    document.body.classList.remove(
+      'intro-locked'
+    );
+
+
+    setTimeout(function(){
+
+      overlay.classList.add(
+        'opened'
+      );
+
+    },600);
+
+  }
+
+
+  var revealAt=1.0;
+
+
+  video.addEventListener(
+  'timeupdate',
+  function(){
+
+    if(
+      video.currentTime >= revealAt
+    ){
+
+      openIntro();
+
+    }
+
+  });
+
+
+  video.addEventListener(
+    'ended',
+    openIntro
+  );
+
+
+  video.addEventListener(
+  'error',
+  function(){
+
+    if(
+      isMobile &&
+      !triedFallback
+    ){
+
+      triedFallback=true;
+
+      video.src=
+      'intro-desktop.mp4';
+
       video.load();
 
-      var opened = false;
-      function openIntro(){
-        if(opened) return;
-        opened = true;
-        overlay.classList.add('opening');
-        document.body.classList.remove('intro-locked');
-        setTimeout(function(){
-          overlay.classList.add('opened');
-        }, 600);
+      var p=
+      video.play();
+
+
+      if(
+        p &&
+        p.catch
+      ){
+
+        p.catch(function(){
+
+          openIntro();
+
+        });
+
       }
 
-      var revealAt = 1.0;
-      video.addEventListener('timeupdate', function(){
-        if(video.currentTime >= revealAt){
-          openIntro();
-        }
-      });
-      video.addEventListener('ended', openIntro);
-      video.addEventListener('error', function(){
-        if(isMobile && !triedFallback){
-          triedFallback = true;
-          video.src = 'intro-desktop.mp4';
-          video.load();
-          var p = video.play();
-          if(p && p.catch){ p.catch(function(){ openIntro(); }); }
-        } else {
-          openIntro();
-        }
-      });
-      // safety fallback in case autoplay is blocked or something goes wrong
-      window.setTimeout(openIntro, 6000);
+    }
 
-      var playPromise = video.play();
-      if(playPromise && playPromise.catch){
-        playPromise.catch(function(){ openIntro(); });
-      }
+    else{
 
-      overlay.addEventListener('click', openIntro);
-      overlay.addEventListener('keydown', function(e){
-        if(e.key === 'Enter' || e.key === ' '){ openIntro(); }
-      });
-      overlay.setAttribute('tabindex', '0');
-      overlay.setAttribute('role', 'button');
-      overlay.setAttribute('aria-label', 'Einladung öffnen');
-    })();
-  </script>
+      openIntro();
+
+    }
+
+  });
+
+
+  window.setTimeout(
+    openIntro,
+    6000
+  );
+
+
+  var playPromise =
+  video.play();
+
+
+  if(
+    playPromise &&
+    playPromise.catch
+  ){
+
+    playPromise.catch(function(){
+
+      openIntro();
+
+    });
+
+  }
+
+
+  overlay.addEventListener(
+    'click',
+    openIntro
+  );
+
+
+  overlay.addEventListener(
+  'keydown',
+  function(e){
+
+    if(
+      e.key === 'Enter' ||
+      e.key === ' '
+    ){
+
+      openIntro();
+
+    }
+
+  });
+
+
+  overlay.setAttribute(
+    'tabindex',
+    '0'
+  );
+
+
+  overlay.setAttribute(
+    'role',
+    'button'
+  );
+
+
+  overlay.setAttribute(
+    'aria-label',
+    'Einladung öffnen'
+  );
+
+})();
+
+</script>
+
 
 </body>
 </html>
