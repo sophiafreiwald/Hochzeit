@@ -598,13 +598,21 @@
       opacity:0.3;
     }
   }
+  .header-floral{
+    display:none;
+    pointer-events:none;
+  }
   @media (max-width:600px){
     .side-floral{
+      display:none;
+    }
+    .header-floral{
+      display:block;
       position:absolute;
       top:0;
-      bottom:auto;
-      height:58vh;
-      max-height:520px;
+      left:0;
+      width:100%;
+      height:auto;
       opacity:0.8;
     }
   }
@@ -650,6 +658,7 @@
 
 <img class="side-floral side-floral-left" src="floral-side-left.png" alt="" aria-hidden="true">
 <img class="side-floral side-floral-right" src="floral-side-right.png" alt="" aria-hidden="true">
+<img class="header-floral" src="header.png" alt="" aria-hidden="true">
 
 <div class="page">
 
